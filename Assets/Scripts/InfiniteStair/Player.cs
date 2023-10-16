@@ -36,7 +36,6 @@ public class Player : MonoBehaviour
         CheckForCollision();
         if (InfiniteStairGameManager.Instance.IsSuccess())
         {
-            Debug.Log("Success!~~~~");
             if (InfiniteStairGameManager.Instance.count % 20 == 0 && InfiniteStairGameManager.Instance.healthMinus <= 20)
             {
                 InfiniteStairGameManager.Instance.healthMinus += 1;
@@ -45,7 +44,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Fail!~~~~");
             InfiniteStairGameManager.Instance.GameOver();
         }
     }
