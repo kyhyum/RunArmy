@@ -8,8 +8,8 @@ public class CharacterController : MonoBehaviour
 {
     public float speed = 5f;
     public float jumpForce = 5f;
-    [SerializeField]
-    private Transform characterBody;
+    
+    public Transform characterBody;
     [SerializeField]
     private Transform cameraArm;
 
@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour
     public float testRay = 0.6f;
     private bool IsJump;
     bool IsGround;
-    Animator animator;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
