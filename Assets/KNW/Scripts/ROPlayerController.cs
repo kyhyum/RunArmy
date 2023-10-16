@@ -15,12 +15,7 @@ public class ROPlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Jump();
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
-    }
-
-    void Jump()
-    {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
     }
 }
