@@ -31,7 +31,7 @@ public class CharacterController : MonoBehaviour
     {
         IsGrounded();
         animator.SetFloat("zVelocity", _rigidbody.velocity.y);
-        if (_rigidbody.velocity.y == 0f) 
+        if (_rigidbody.velocity.y == 0f && IsGround) 
         {
             animator.SetBool("IsJump", false);
         }
