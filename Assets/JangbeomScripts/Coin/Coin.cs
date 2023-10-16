@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, 100f) * Time.deltaTime);//È¸Àü
