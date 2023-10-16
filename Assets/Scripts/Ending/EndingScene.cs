@@ -13,7 +13,6 @@ public class EndingScene : MonoBehaviour
     [SerializeField] private Sprite enlistment;
     [SerializeField] private Sprite discharge;
 
-
     [Header("Ending Panel")]
     [SerializeField] private Image resultImage;
     [SerializeField] private Image gutgun;
@@ -27,9 +26,16 @@ public class EndingScene : MonoBehaviour
     [SerializeField] private Button mainButton;
     [SerializeField] private Button retryButton;
 
+    [Header("Ending Sounds")]
+    [SerializeField] private AudioClip clearClip;
+    [SerializeField] private AudioClip failClip;
+
     private void OnEnable()
     {
-
+        // TODO
+        // StartScene 이동
+        // MainMenuScene 이동
+        // 버튼 연결
     }
 
     private void Start()
@@ -70,6 +76,8 @@ public class EndingScene : MonoBehaviour
         himchanText.text = "내년에 또 봐!";
 
         announcementText.text = "무사히 전역하셨습니다!";
+
+        SoundManager.Instance.PlaySFX(clearClip);
     }
 
     private void ShowGameOver()
@@ -81,5 +89,6 @@ public class EndingScene : MonoBehaviour
         himchanText.text = "훈련소는 처음이지?";
 
         announcementText.text = "입영일자로 회귀하였습니다.\n다시하시겠습니까?";
+        SoundManager.Instance.PlaySFX(failClip);
     }
 }
