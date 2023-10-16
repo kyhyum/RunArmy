@@ -8,7 +8,7 @@ public class RotateObjectT : MonoBehaviour
     private float timeInCurrentPhase = 0.0f;
     private float rotationSpeed = 0.0f;
     private int rotateDirection = -1;
-    private float maxRotationSpeed = 600.0f;
+    private float maxRotationSpeed = 400.0f;
 
     private void Start()
     {

@@ -5,9 +5,14 @@ using UnityEngine;
 public class SkinLoadController : MonoBehaviour
 {
     public static GameObject skinToLoad;
+    public GameObject defaultSkin;
 
     private void Awake()
     {
-        Instantiate(skinToLoad, transform);
+        if(skinToLoad != null)
+        {
+            Instantiate(skinToLoad, transform);
+            Destroy(defaultSkin);
+        }
     }
 }
