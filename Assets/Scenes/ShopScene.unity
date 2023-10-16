@@ -1619,7 +1619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a3ef67a25ad74cab918c19987c6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinToEquip: {fileID: 7282745448654954644, guid: 8ba531f363af9994693194978a8a9675, type: 3}
+  skinToEquip: {fileID: 2863649443221236621, guid: 77adc5ad379405f4d900c2a77137964e, type: 3}
 --- !u!224 &2783926051207758473
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2567,7 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a3ef67a25ad74cab918c19987c6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinToEquip: {fileID: 3067185674342273533, guid: 1d0108fb4c19d5b47aed9b62a2c38b57, type: 3}
+  skinToEquip: {fileID: 6479118926598736838, guid: c5a0dfaf21d17f649bda58c43d7ea45f, type: 3}
 --- !u!114 &8573027324920098467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,7 +2580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a3ef67a25ad74cab918c19987c6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinToEquip: {fileID: 3067185674342273533, guid: a07fa7021800c634fbb8173e6975c34d, type: 3}
+  skinToEquip: {fileID: 4537386101783035474, guid: 3a46b5882855c354bbd1529a96fbcdad, type: 3}
 --- !u!114 &8573027325635258375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,7 +2593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 223a3ef67a25ad74cab918c19987c6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinToEquip: {fileID: 3067185674342273533, guid: 0f56c1ea6a365794c8257417a91dee85, type: 3}
+  skinToEquip: {fileID: 1194226330181448382, guid: ae459301344c6dd4bb822f3d746f4ec8, type: 3}
 --- !u!222 &8696394652446553235
 CanvasRenderer:
   m_ObjectHideFlags: 0

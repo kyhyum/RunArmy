@@ -9,10 +9,18 @@ public class SkinLoadController : MonoBehaviour
 
     private void Awake()
     {
-        if(skinToLoad != null)
+        if (skinToLoad != null)
         {
-            Instantiate(skinToLoad, transform);
+            GameObject skinClone = Instantiate(skinToLoad, transform);
             Destroy(defaultSkin);
+            CharacterController characterController = FindObjectOfType<CharacterController>();
+
+            if (characterController != null)
+            {
+                Animator skinAnimator = skinClone.GetComponent<Animator>();
+                characterController.animator = skinAnimator;
+                characterController.characterBody = skinClone.transform;
+            }
         }
     }
 }
