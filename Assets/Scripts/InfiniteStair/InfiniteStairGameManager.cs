@@ -78,7 +78,7 @@ public class InfiniteStairGameManager : MonoBehaviour
         if(count % 50 == 0)
         {
             int num = skyBoxCount % 4;
-            skyBoxSetting.SetSkyBox(num);
+            skyBoxSetting.SetSkyBox(Skybox.Sunset);
         }
     }
 }
