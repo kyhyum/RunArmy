@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 19371006}
   m_Layer: 0
   m_Name: Coin (13)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,6 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &19371007
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -797,7 +798,7 @@ GameObject:
   - component: {fileID: 67845744}
   m_Layer: 0
   m_Name: Coin (34)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -829,6 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &67845745
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -983,7 +985,7 @@ GameObject:
   - component: {fileID: 78422424}
   m_Layer: 0
   m_Name: Coin (1)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1015,6 +1017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &78422425
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1238,7 +1241,7 @@ GameObject:
   - component: {fileID: 94867954}
   m_Layer: 0
   m_Name: Coin (18)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,6 +1273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &94867955
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1832,7 +1836,7 @@ GameObject:
   - component: {fileID: 138448929}
   m_Layer: 0
   m_Name: Coin (11)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1864,6 +1868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &138448930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2103,7 +2108,7 @@ GameObject:
   - component: {fileID: 154926168}
   m_Layer: 0
   m_Name: Coin (3)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2135,6 +2140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &154926169
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3414,7 +3420,7 @@ GameObject:
   - component: {fileID: 245406671}
   m_Layer: 0
   m_Name: Coin (2)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3446,6 +3452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &245406672
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4106,7 +4113,7 @@ GameObject:
   - component: {fileID: 349513718}
   m_Layer: 0
   m_Name: Coin (31)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4138,6 +4145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &349513719
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4605,7 +4613,7 @@ GameObject:
   - component: {fileID: 393096167}
   m_Layer: 0
   m_Name: Coin (22)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4637,6 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &393096168
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5705,6 +5714,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+--- !u!1 &553149766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553149768}
+  - component: {fileID: 553149767}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &553149767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553149766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15af85bce6435aa42bbc6bc1e35b834e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
+--- !u!4 &553149768
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553149766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.17466, y: 1.2440263, z: 11.397459}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &554490656 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4713333779746000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
@@ -6188,7 +6242,7 @@ GameObject:
   - component: {fileID: 598313354}
   m_Layer: 0
   m_Name: Coin (16)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6220,6 +6274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &598313355
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6997,7 +7052,7 @@ GameObject:
   - component: {fileID: 649668693}
   m_Layer: 0
   m_Name: Coin (32)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7029,6 +7084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &649668694
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7858,7 +7914,7 @@ GameObject:
   - component: {fileID: 723626339}
   m_Layer: 0
   m_Name: Coin (26)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7890,6 +7946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &723626340
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8616,7 +8673,7 @@ GameObject:
   - component: {fileID: 832759315}
   m_Layer: 0
   m_Name: Coin (23)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8648,6 +8705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &832759316
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9244,7 +9302,7 @@ GameObject:
   - component: {fileID: 876939136}
   m_Layer: 0
   m_Name: Coin (29)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9276,6 +9334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &876939137
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9769,7 +9828,7 @@ GameObject:
   - component: {fileID: 935540110}
   m_Layer: 0
   m_Name: Coin (25)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9801,6 +9860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &935540111
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9959,7 +10019,7 @@ GameObject:
   - component: {fileID: 959382483}
   m_Layer: 0
   m_Name: Coin (21)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9991,6 +10051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &959382484
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11613,7 +11674,7 @@ GameObject:
   - component: {fileID: 1146563360}
   m_Layer: 0
   m_Name: Coin (17)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11645,6 +11706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1146563361
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11884,7 +11946,7 @@ GameObject:
   - component: {fileID: 1162115580}
   m_Layer: 0
   m_Name: Coin (15)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11916,6 +11978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1162115581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12240,7 +12303,7 @@ GameObject:
   - component: {fileID: 1170496449}
   m_Layer: 0
   m_Name: Coin (20)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12272,6 +12335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1170496450
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12832,7 +12896,7 @@ GameObject:
   - component: {fileID: 1240503120}
   m_Layer: 0
   m_Name: Coin (30)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12864,6 +12928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1240503121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14413,7 +14478,7 @@ GameObject:
   - component: {fileID: 1371309115}
   m_Layer: 0
   m_Name: Coin (4)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14445,6 +14510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1371309116
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14538,7 +14604,7 @@ GameObject:
   - component: {fileID: 1372248792}
   m_Layer: 0
   m_Name: Coin (6)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14570,6 +14636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1372248793
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15422,7 +15489,7 @@ GameObject:
   - component: {fileID: 1466674612}
   m_Layer: 0
   m_Name: Coin (5)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15454,6 +15521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1466674613
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15971,7 +16039,7 @@ GameObject:
   - component: {fileID: 1532058135}
   m_Layer: 0
   m_Name: Coin (28)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16003,6 +16071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1532058136
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16447,7 +16516,7 @@ GameObject:
   - component: {fileID: 1585860982}
   m_Layer: 0
   m_Name: Coin (10)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16479,6 +16548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1585860983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16887,7 +16957,7 @@ GameObject:
   - component: {fileID: 1615969191}
   m_Layer: 0
   m_Name: Coin (8)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16919,6 +16989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1615969192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17080,7 +17151,7 @@ GameObject:
   - component: {fileID: 1642591175}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17097,6 +17168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1642591176
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17263,7 +17335,7 @@ GameObject:
   - component: {fileID: 1661174061}
   m_Layer: 0
   m_Name: Coin (9)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17295,6 +17367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1661174062
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17388,7 +17461,7 @@ GameObject:
   - component: {fileID: 1668333434}
   m_Layer: 0
   m_Name: Coin (19)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17420,6 +17493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1668333435
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18122,7 +18196,7 @@ GameObject:
   - component: {fileID: 1711684622}
   m_Layer: 0
   m_Name: Coin (27)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18154,6 +18228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1711684623
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18247,7 +18322,7 @@ GameObject:
   - component: {fileID: 1720926357}
   m_Layer: 0
   m_Name: Coin (24)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18279,6 +18354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1720926358
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19570,7 +19646,7 @@ GameObject:
   - component: {fileID: 1822232538}
   m_Layer: 0
   m_Name: Coin (7)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19602,6 +19678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1822232539
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19690,7 +19767,7 @@ GameObject:
   - component: {fileID: 1830952269}
   m_Layer: 0
   m_Name: Coin (33)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19722,6 +19799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1830952270
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -20116,7 +20194,7 @@ GameObject:
   - component: {fileID: 1856880539}
   m_Layer: 0
   m_Name: Coin (12)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20148,6 +20226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &1856880540
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22578,7 +22657,7 @@ GameObject:
   - component: {fileID: 2085963957}
   m_Layer: 0
   m_Name: Coin (14)
-  m_TagString: coin
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22610,6 +22689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7326401206f4844bae62dbddf1727fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 762159924}
 --- !u!136 &2085963958
 CapsuleCollider:
   m_ObjectHideFlags: 0
