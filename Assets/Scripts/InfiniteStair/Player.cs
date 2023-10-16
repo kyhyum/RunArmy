@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public enum PlayerRotate
 {
@@ -12,34 +13,53 @@ public enum PlayerRotate
 
 public class Player : MonoBehaviour
 {
-    private Transform mainCameraTransform { get; set; }
     private Vector3 InitialPosition;
-    private InfiniteStairGameManager gameManager;
     [field: SerializeField] public StairAnimationData AnimationData { get; private set; }
-
     [SerializeField]public Animator animator { get; private set; }
+
+    public Transform PlayerTr;
     private void Awake()
     {
-        gameManager = InfiniteStairGameManager.Instance;
         AnimationData.Initialize();
         InitialPosition = transform.position;
         animator = GetComponentInChildren<Animator>();
     }
 
+    //계단 올라가는 함수
     public void UpStair(PlayerRotate playerRotate)
     {
         SetPlayerRotate(playerRotate);
-        transform.position = InitialPosition + this.transform.forward * 0.5f + this.transform.up * 0.3f;
+        transform.position = InitialPosition;
+        PlayerTr.position = InitialPosition;
         StartAnimation();
-        gameManager.count++;
-        if(gameManager.count % 20 == 0 || gameManager.healthMinus <= 20)
-        {
-            gameManager.healthMinus += 1;
-        }
         MoveStair(playerRotate);
-        gameManager.Success();
+        CheckForCollision();
+        if (InfiniteStairGameManager.Instance.IsSuccess())
+        {
+            Debug.Log("Success!~~~~");
+            if (InfiniteStairGameManager.Instance.count % 20 == 0 && InfiniteStairGameManager.Instance.healthMinus <= 20)
+            {
+                InfiniteStairGameManager.Instance.healthMinus += 1;
+            }
+            InfiniteStairGameManager.Instance.Success();
+        }
+        else
+        {
+            Debug.Log("Fail!~~~~");
+            InfiniteStairGameManager.Instance.GameOver();
+        }
     }
 
+    //성공을 했는지 확인을 위한 CollisionCheck
+    private void CheckForCollision()
+    {
+        if (Physics.Raycast(transform.position - Vector3.down * 0.2f, transform.forward, out RaycastHit hit, 1f))
+        {
+            InfiniteStairGameManager.Instance.isSuccess = true;
+        }
+    }
+
+    //플레이어 회전 값 설정
     public void SetPlayerRotate(PlayerRotate playerRotate)
     {
         if(playerRotate == PlayerRotate.left)
@@ -56,24 +76,26 @@ public class Player : MonoBehaviour
         }
     }
 
+    //플레이어 에니메이션 설정
     private void StartAnimation()
     {
-        if(gameManager.count == 0)
+        if(InfiniteStairGameManager.Instance.count == 0)
         {
             animator.SetBool(AnimationData.StartGameParameterHash, true);
         }
-        else if(gameManager.count % 2 != 0)
+        else if(InfiniteStairGameManager.Instance.count % 2 == 0)
         {
             animator.SetBool(AnimationData.LeftLegUpParameterHash, true);
             animator.SetBool(AnimationData.RightLegUpParameterHash, false);
         }
-        else if(gameManager.count % 2 == 0)
+        else if(InfiniteStairGameManager.Instance.count % 2 != 0)
         {
             animator.SetBool(AnimationData.LeftLegUpParameterHash, false);
             animator.SetBool(AnimationData.RightLegUpParameterHash, true);
         }
     }
 
+    //계단 올라갈때 위치 조정
     private void MoveStair(PlayerRotate playerRotate)
     {
         if (playerRotate == PlayerRotate.left)
