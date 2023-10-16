@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,7 +16,6 @@ public class CharacterController : MonoBehaviour
     public LayerMask groundLayerMask;
     private Rigidbody _rigidbody;
     private Vector2 direction;
-
     public float testRay = 0.6f;
     private bool IsJump;
     bool IsGround;
@@ -26,7 +26,6 @@ public class CharacterController : MonoBehaviour
         animator = characterBody.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -37,7 +36,6 @@ public class CharacterController : MonoBehaviour
             animator.SetBool("IsJump", false);
         }
     }
-
     public void Move(Vector2 inputDirection)
     {
 
@@ -86,12 +84,10 @@ public class CharacterController : MonoBehaviour
     {
         direction = value.Get<Vector2>().normalized;
     }
-
         private void FixedUpdate()
     {
         MoveKey(direction);
     }
-
 
     private void IsGrounded()
     {
@@ -117,7 +113,6 @@ public class CharacterController : MonoBehaviour
             }
         }
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -126,9 +121,6 @@ public class CharacterController : MonoBehaviour
         Gizmos.DrawRay(transform.position + (transform.right)+(Vector3.up * 0.01f), Vector3.down);
         Gizmos.DrawRay(transform.position + (-transform.right) + (Vector3.up * 0.01f), Vector3.down);
     }
-
-
-
     public void OnJump(InputValue value)//키보드 스페이스바 점프
     {
         Jump();
