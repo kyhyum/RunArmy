@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RotateObjectT : MonoBehaviour
+public class RotateObject : MonoBehaviour
 {
     [SerializeField] private float initialRotationSpeed;
     [SerializeField] private float accelerationRate;
@@ -8,7 +8,7 @@ public class RotateObjectT : MonoBehaviour
     private float timeInCurrentPhase = 0.0f;
     private float rotationSpeed = 0.0f;
     private int rotateDirection = -1;
-    private float maxRotationSpeed = 400.0f;
+    private float maxRotationSpeed = 300.0f;
 
     private void Start()
     {
@@ -42,6 +42,7 @@ public class RotateObjectT : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit");
+            Time.timeScale = 0.0f;
         }
     }
 }
