@@ -16,9 +16,9 @@
                 },
                 {
                     "name": "Jump",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "8b104f78-a2fb-4c77-bf4c-fc64d6526c2a",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true

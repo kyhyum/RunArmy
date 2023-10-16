@@ -15,6 +15,9 @@ public class CharacterController : MonoBehaviour
     public LayerMask groundLayerMask;
     private Rigidbody _rigidbody;
     private Vector2 direction;
+
+    public float testRay = 0.6f;
+    private bool IsJump;
     Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +29,6 @@ public class CharacterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //LookAround();
-        //Move();
     }
 
     public void Move(Vector2 inputDirection)
@@ -97,7 +98,7 @@ public class CharacterController : MonoBehaviour
 
         for (int i = 0; i < rays.Length; i++)
         {
-            if (Physics.Raycast(rays[i], 1f, groundLayerMask))
+            if (Physics.Raycast(rays[i], testRay, groundLayerMask))
             {
                 return true;
             }
@@ -117,7 +118,7 @@ public class CharacterController : MonoBehaviour
 
 
     public void OnJump(InputValue value)//키보드 스페이스바 점프
-    { 
+    {
         Jump();
     }
     public void Jump() 
