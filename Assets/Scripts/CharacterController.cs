@@ -18,17 +18,24 @@ public class CharacterController : MonoBehaviour
 
     public float testRay = 0.6f;
     private bool IsJump;
+    bool IsGround;
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        //animator = characterBody.GetComponent<Animator>();
+        animator = characterBody.GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        IsGrounded();
+        animator.SetFloat("zVelocity", _rigidbody.velocity.y);
+        if (_rigidbody.velocity.y == 0f) 
+        {
+            animator.SetBool("IsJump", false);
+        }
     }
 
     public void Move(Vector2 inputDirection)
@@ -39,7 +46,7 @@ public class CharacterController : MonoBehaviour
         // 이동 방향키 입력 판정 : 이동 방향 벡터가 0보다 크면 입력이 발생하고 있는 중
         bool isMove = moveInput.magnitude != 0;
         // 입력이 발생하는 중이라면 이동 애니메이션 재생
-        //animator.SetBool("isMove", isMove);
+        animator.SetBool("IsMove", isMove);
         if (isMove)
         {
             // 카메라가 바라보는 방향
@@ -60,7 +67,7 @@ public class CharacterController : MonoBehaviour
         // 이동 방향키 입력 판정 : 이동 방향 벡터가 0보다 크면 입력이 발생하고 있는 중
         bool isMove = moveInput.magnitude != 0;
         // 입력이 발생하는 중이라면 이동 애니메이션 재생
-        //animator.SetBool("isMove", isMove);
+        animator.SetBool("IsMove", isMove);
         if (isMove)
         {
             // 카메라가 바라보는 방향
@@ -86,7 +93,7 @@ public class CharacterController : MonoBehaviour
     }
 
 
-    private bool IsGrounded()
+    private void IsGrounded()
     {
         Ray[] rays = new Ray[4]
         {
@@ -100,10 +107,15 @@ public class CharacterController : MonoBehaviour
         {
             if (Physics.Raycast(rays[i], testRay, groundLayerMask))
             {
-                return true;
+                IsGround = true;
+                animator.SetBool("IsJump", false);
+            }
+            else
+            {
+                IsGround = false;
+                animator.SetBool("IsJump", true);
             }
         }
-        return false;
     }
 
     private void OnDrawGizmos()
@@ -123,8 +135,9 @@ public class CharacterController : MonoBehaviour
     }
     public void Jump() 
     {
-        if (IsGrounded()) 
+        if (IsGround) 
         {
+            animator.SetBool("IsJump",true);
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
     }
