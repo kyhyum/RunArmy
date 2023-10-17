@@ -8,8 +8,8 @@ public class PacmanGameManager : MonoBehaviour
     public static PacmanGameManager Instance;
 
     private int score = 0;
-    public GameObject specialCoin;
-    private GameObject[] normalCoins;
+    
+    
     public TMP_Text scoreText;
     public GameObject uiOver;
 
@@ -24,10 +24,7 @@ public class PacmanGameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void Start()
-    {
-        normalCoins = GameObject.FindGameObjectsWithTag("coin");
-    }
+    
 
     private void UpdateScoreText()
     {
@@ -39,19 +36,8 @@ public class PacmanGameManager : MonoBehaviour
         score += increment;
         UpdateScoreText();
     }
-    public void ConsumeNormalCoin()
-    {
-        normalCoins = GameObject.FindGameObjectsWithTag("coin");
-        if (normalCoins.Length <= 0)
-        {
-            ActivateSpecialCoin();
-        }
-    }
 
-    private void ActivateSpecialCoin()
-    {
-        specialCoin.SetActive(true);
-    }
+    
     public void GameOver()  
     {
         uiOver.SetActive(true);
