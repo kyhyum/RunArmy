@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Obstacle : MonoBehaviour
 {
     [Header("Collision")]
-    private Rigidbody _rigidbody;
+    [SerializeField] private float mass;
     private ObstacleCollision _obstacleCollision;
     private const string WATER_LAYER = "Water";
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _obstacleCollision = new ObstacleCollision();
     }
 
@@ -20,7 +18,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.rigidbody != null)
         {
-            _obstacleCollision.ApplyCollision(collision.rigidbody, -collision.GetContact(0).normal, _rigidbody.mass);
+            _obstacleCollision.ApplyCollision(collision.rigidbody, -collision.GetContact(0).normal, mass);
         }
     }
 
