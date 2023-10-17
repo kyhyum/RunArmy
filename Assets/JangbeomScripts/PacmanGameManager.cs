@@ -1,16 +1,17 @@
-using System;
+
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PacmanGameManager : MonoBehaviour
 {
     public static PacmanGameManager Instance;
 
     private int score = 0;
-    public GameObject specialCoinPrefab;
-    private int normalCoinCount = 35;
-
-    public TMP_Text scoreText; 
+    public GameObject specialCoin;
+    private GameObject[] normalCoins;
+    public TMP_Text scoreText;
+    public GameObject uiOver;
 
     private void Awake()
     {
@@ -22,6 +23,10 @@ public class PacmanGameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
+        normalCoins = GameObject.FindGameObjectsWithTag("coin");
     }
 
     private void UpdateScoreText()
@@ -36,9 +41,8 @@ public class PacmanGameManager : MonoBehaviour
     }
     public void ConsumeNormalCoin()
     {
-        normalCoinCount--;
-        
-        if(normalCoinCount <= 0)
+        normalCoins = GameObject.FindGameObjectsWithTag("coin");
+        if (normalCoins.Length <= 0)
         {
             ActivateSpecialCoin();
         }
@@ -46,7 +50,19 @@ public class PacmanGameManager : MonoBehaviour
 
     private void ActivateSpecialCoin()
     {
-        GameObject specialCoin = Instantiate(specialCoinPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         specialCoin.SetActive(true);
+    }
+    public void GameOver()  
+    {
+        uiOver.SetActive(true);
+    }
+    public void Retry()
+    {
+        uiOver.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+
+        score = 0;
+
     }
 }
