@@ -2947,6 +2947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05530c4516eaf0a4193736d4a72d6e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveData: {fileID: 0}
+  spawnInitAmount: 10
+  transforms: []
 --- !u!4 &1740794134
 Transform:
   m_ObjectHideFlags: 0
@@ -4348,17 +4351,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1254030894232885203, guid: a141f0597ad7bf245a7d379bf794635f, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2926499155453489580, guid: a141f0597ad7bf245a7d379bf794635f, type: 3}
       propertyPath: m_Name
       value: Tire
-      objectReference: {fileID: 0}
-    - target: {fileID: 4242355075992577684, guid: a141f0597ad7bf245a7d379bf794635f, type: 3}
-      propertyPath: mass
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5052851707081945962, guid: a141f0597ad7bf245a7d379bf794635f, type: 3}
       propertyPath: m_RootOrder
@@ -4417,10 +4412,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3810113851582421088, guid: e681a3f4d16ac224487b33e56382caeb, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5286064773076834736, guid: e681a3f4d16ac224487b33e56382caeb, type: 3}
       propertyPath: m_Name
       value: Wirespool
@@ -4469,10 +4460,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9142725680834500461, guid: e681a3f4d16ac224487b33e56382caeb, type: 3}
-      propertyPath: mass
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4486,17 +4473,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 232343700782102654, guid: 9209c2c1c762b804fb537a6846fddd72, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 799700465217061236, guid: 9209c2c1c762b804fb537a6846fddd72, type: 3}
       propertyPath: m_Name
       value: Bike
-      objectReference: {fileID: 0}
-    - target: {fileID: 1703769027879733417, guid: 9209c2c1c762b804fb537a6846fddd72, type: 3}
-      propertyPath: mass
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4330988160723987608, guid: 9209c2c1c762b804fb537a6846fddd72, type: 3}
       propertyPath: m_RootOrder
@@ -4555,10 +4534,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1381978130383742159, guid: 20e4a34e0e7e8de4db8dc41b770d2152, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4035082838420117589, guid: 20e4a34e0e7e8de4db8dc41b770d2152, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4607,10 +4582,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MilitaryCar
       objectReference: {fileID: 0}
-    - target: {fileID: 9045376269672153503, guid: 20e4a34e0e7e8de4db8dc41b770d2152, type: 3}
-      propertyPath: mass
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4624,14 +4595,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4386660565873823317, guid: a550f1bc83a76094c98ebad3cb7447ef, type: 3}
-      propertyPath: mass
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4530598167510722179, guid: a550f1bc83a76094c98ebad3cb7447ef, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5106799748546570122, guid: a550f1bc83a76094c98ebad3cb7447ef, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4693,14 +4656,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4032179645710973468, guid: 88c884ed7e2c4584395860d2a69a4ded, type: 3}
-      propertyPath: mass
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944194670031463198, guid: 88c884ed7e2c4584395860d2a69a4ded, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5459831442540953578, guid: 88c884ed7e2c4584395860d2a69a4ded, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -4823,14 +4778,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1479761940645527835, guid: 6e0e19ca007817c42bbc16a04a2bafae, type: 3}
-      propertyPath: mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2338593318850950295, guid: 6e0e19ca007817c42bbc16a04a2bafae, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3144301746819076788, guid: 6e0e19ca007817c42bbc16a04a2bafae, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4896,14 +4843,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank
       objectReference: {fileID: 0}
-    - target: {fileID: 5926500040928594473, guid: 5534d5af4b04d1c47b51c10e0c171253, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8339716799783667567, guid: 5534d5af4b04d1c47b51c10e0c171253, type: 3}
-      propertyPath: mass
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 9212103753171166740, guid: 5534d5af4b04d1c47b51c10e0c171253, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -4961,10 +4900,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3849188208032059294, guid: 14d270efabe07cb43855f8954d970171, type: 3}
-      propertyPath: mass
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7578478966323744724, guid: 14d270efabe07cb43855f8954d970171, type: 3}
       propertyPath: m_RootOrder
       value: 4

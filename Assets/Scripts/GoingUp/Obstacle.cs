@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
 {
     [Header("Collision")]
     [SerializeField] private float mass;
@@ -28,5 +29,13 @@ public class Obstacle : MonoBehaviour
         {
             // 스포너로 반환
         }
+    }
+
+    public void Init(Action<Obstacle> returnAction)
+    {
+    }
+
+    public void ReturnToPool(Obstacle t)
+    {
     }
 }
