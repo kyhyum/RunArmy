@@ -1,13 +1,17 @@
+
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PacmanGameManager : MonoBehaviour
 {
     public static PacmanGameManager Instance;
 
     private int score = 0;
-
-    public TMP_Text scoreText; 
+    
+    
+    public TMP_Text scoreText;
+    public GameObject uiOver;
 
     private void Awake()
     {
@@ -20,6 +24,7 @@ public class PacmanGameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 
     private void UpdateScoreText()
     {
@@ -30,5 +35,20 @@ public class PacmanGameManager : MonoBehaviour
     {
         score += increment;
         UpdateScoreText();
+    }
+
+    
+    public void GameOver()  
+    {
+        uiOver.SetActive(true);
+    }
+    public void Retry()
+    {
+        uiOver.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1.0f;
+
+        score = 0;
+
     }
 }

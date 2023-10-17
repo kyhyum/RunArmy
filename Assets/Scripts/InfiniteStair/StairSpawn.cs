@@ -6,7 +6,7 @@ public class StairSpawn : MonoBehaviour
 {
     public Queue<GameObject> stairQueue;
     public GameObject stair;
-    private int count = 30;
+    private int count = 40;
 
     private void Awake()
     {

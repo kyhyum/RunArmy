@@ -9,17 +9,25 @@ public class InfiniteStairGameManager : MonoBehaviour
 {
     public static InfiniteStairGameManager Instance;
 
+    //성공 했는지 bool 변수
+    public bool isSuccess = false;
+    //성공 횟수
     public int count = 0;
-    private int skyBoxCount = 0;
 
+    //체력 관련
     public int healthMinus = 1;
     private float elapsedTime = 0;
-    
-    public StairSpawn stairSpawn;
+
+    //SKyBox 설정
     public SkyBoxSetting skyBoxSetting;
-    
+    private int skyBoxCount = 0;
+
+    //Stair Spawn 관련
+    public StairSpawn stairSpawn;
+    public Queue<GameObject> stairSpawnQueue = new Queue<GameObject>();
     private Vector3 currentStairTr = new Vector3(0.5f, 0.05f, 0.5f);
     List<Vector3> upStairPos = new List<Vector3>();
+    private int stairRangeNum = 1;
 
     //UI
     public Slider healthSlider;
@@ -38,19 +46,41 @@ public class InfiniteStairGameManager : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-        if(elapsedTime > 1f)
+        if(elapsedTime > 1f && count > 0)
         {
             healthSlider.value -= healthMinus;
             elapsedTime = 0f;
+        }
+
+        if(healthSlider.value == 0)
+        {
+            GameOver();
         }
     }
 
     private void Start()
     {
-        for (int i = 0; i< 10; i++)
+        for (int i = 0; i< 30; i++)
         {
             SpawnStair();
         }
+    }
+
+    public int RandomRangeStairList()
+    {
+        if (stairRangeNum == 0)
+        {
+            stairRangeNum = Random.Range(0, 2);
+        }
+        else if (stairRangeNum == 2)
+        {
+            stairRangeNum = Random.Range(1, 3);
+        }
+        else
+        {
+            stairRangeNum = Random.Range(0, 3);
+        }
+        return stairRangeNum;
     }
 
     //계단 스폰
@@ -58,27 +88,42 @@ public class InfiniteStairGameManager : MonoBehaviour
     {
         GameObject spawnStair = stairSpawn.GetQueue();
         spawnStair.transform.position = SetSpawnStairPosition();
+        stairSpawnQueue.Enqueue(spawnStair);
     }
 
     private Vector3 SetSpawnStairPosition()
     {
-        currentStairTr += upStairPos[Random.Range(0, 2)];
+        currentStairTr += upStairPos[RandomRangeStairList()];
         return currentStairTr;
     }
 
     public void GameOver()
     {
-
+        Time.timeScale = 0f;
     }
 
     public void Success()
     {
+        count++;
         healthSlider.value += 5;
         scoreTxt.text = count.ToString();
         if(count % 50 == 0)
         {
             int num = skyBoxCount % 4;
-            skyBoxSetting.SetSkyBox(Skybox.Sunset);
+            skyBoxSetting.SetSkyBox((Skybox)num);
+            skyBoxCount++;
         }
+        if(count >= 7)
+        {
+            stairSpawn.InsertQueue(stairSpawnQueue.Dequeue());
+        }
+        SpawnStair();
+    }
+
+    public bool IsSuccess()
+    {
+        bool temp = isSuccess;
+        isSuccess = false;
+        return temp;
     }
 }
