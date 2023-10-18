@@ -17,6 +17,8 @@ public class CatchTheSupplyGameManager : MonoBehaviour
 
     public bool gameEndCheck;
 
+    public static Cannon cannon;
+
     float time = 0;
     void Start()
     {
