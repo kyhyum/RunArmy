@@ -20,7 +20,7 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
             _dataDict.Add(data.Wave, data);
             _waveDict.Add(data.Wave, new Queue<Obstacle>());
 
-            int routeCount = (int)data.SpawnDelayTime;
+            int routeCount = (int)(spawnInitAmount / data.SpawnDelayTime);
             routeCount = routeCount < 1 ? 1 : routeCount;
 
             for (int i = 0; i < routeCount; i++)
@@ -44,15 +44,24 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
         if (index == -1)
             index = UnityEngine.Random.Range(0, data.Obstacles.Length);
 
-        Obstacle obstacle = UnityEngine.Object.Instantiate(data.Obstacles[index], _transforms[(int)data.Wave]);
+        Transform parent = _transforms[(int)data.Wave];
+        Obstacle obstacle = UnityEngine.Object.Instantiate(data.Obstacles[index], parent);
         obstacle.Init(Push);
         _waveDict[data.Wave].Enqueue(obstacle);
+
+        Vector3 offsetScale = new Vector3(
+            obstacle.transform.localScale.x / parent.transform.localScale.x,
+            obstacle.transform.localScale.y / parent.transform.localScale.y,
+            obstacle.transform.localScale.z / parent.transform.localScale.z
+            );
+
+        obstacle.transform.localScale = offsetScale;
         return obstacle;
     }
 
     public Obstacle Pool(Wave wave)
     {
-        Obstacle obstacle = null;
+        Obstacle obstacle;
 
         if (_waveDict[wave].Count > 0)
         {

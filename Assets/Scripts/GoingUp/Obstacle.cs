@@ -7,30 +7,31 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
 {
     [Header("Collision")]
     [SerializeField] private float mass;
+    [SerializeField] private int waitMilliseconds = 2000;
     private ObstacleCollision _obstacleCollision;
     private const string WATER_LAYER = "Water";
 
+    [Header("ReturnToPool")]
+    [SerializeField] private float deathTimer = 10f;
+    private float _elapsedTime = 0f;
     private Action<Obstacle> _returnAction;
+
+    public Rigidbody Rigidbody { get; private set; }
 
     private void Awake()
     {
         _obstacleCollision = new ObstacleCollision();
+        Rigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnDisable()
     {
-        if (collision.rigidbody != null)
-        {
-            _obstacleCollision.ApplyCollision(collision.rigidbody, -collision.GetContact(0).normal, mass);
-        }
+        _elapsedTime = 0f;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Update()
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer(WATER_LAYER))
-        {
-            // 스포너로 반환
-        }
+        CheckDeath();
     }
 
     public void Init(Action<Obstacle> returnAction)
@@ -41,5 +42,30 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
     public void ReturnToPool()
     {
         _returnAction?.Invoke(this);
+    }
+
+    private void CheckDeath()
+    {
+        _elapsedTime += Time.deltaTime;
+        if (_elapsedTime >= deathTimer)
+        {
+            _returnAction?.Invoke(this);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.TryGetComponent(out CharacterController controller))
+        {
+            _obstacleCollision.ApplyCollision(controller, collision.rigidbody, -collision.GetContact(0).normal, mass, waitMilliseconds);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer(WATER_LAYER))
+        {
+            ReturnToPool();
+        }
     }
 }

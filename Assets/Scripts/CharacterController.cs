@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class CharacterController : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class CharacterController : MonoBehaviour
     private bool IsJump;
     bool IsGround;
     public Animator animator;
+
+    private bool _canMove = true;
+    private int _collisionStack = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +43,8 @@ public class CharacterController : MonoBehaviour
     }
     public void Move(Vector2 inputDirection)
     {
+        if (!_canMove)
+            return;
 
         // 이동 방향키 입력 값 가져오기
         Vector2 moveInput = inputDirection;
@@ -61,6 +68,9 @@ public class CharacterController : MonoBehaviour
     }
     private void MoveKey(Vector2 direction)
     {
+        if (!_canMove)
+            return;
+
         Vector2 moveInput = direction;
         // 이동 방향키 입력 판정 : 이동 방향 벡터가 0보다 크면 입력이 발생하고 있는 중
         bool isMove = moveInput.magnitude != 0;
@@ -132,5 +142,24 @@ public class CharacterController : MonoBehaviour
             animator.SetBool("IsJump",true);
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    public void SetMovable()
+    {
+        if (_collisionStack > 0)
+        {
+            _collisionStack--;
+
+            if (_collisionStack == 0)
+                _canMove = true;
+        }
+    }
+
+    public void SetImmovable()
+    {
+        _collisionStack++;
+
+        if (_collisionStack == 1)
+            _canMove = false;
     }
 }
