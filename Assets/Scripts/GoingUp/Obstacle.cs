@@ -10,6 +10,8 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
     private ObstacleCollision _obstacleCollision;
     private const string WATER_LAYER = "Water";
 
+    private Action<Obstacle> _returnAction;
+
     private void Awake()
     {
         _obstacleCollision = new ObstacleCollision();
@@ -33,9 +35,11 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
 
     public void Init(Action<Obstacle> returnAction)
     {
+        _returnAction = returnAction;
     }
 
-    public void ReturnToPool(Obstacle t)
+    public void ReturnToPool()
     {
+        _returnAction?.Invoke(this);
     }
 }

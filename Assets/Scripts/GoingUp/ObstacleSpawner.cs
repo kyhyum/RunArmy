@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] private WaveData waveData;
+    [SerializeField] private WaveData[] waveDatas;
 
     [Header("Spawn")]
     [SerializeField] private int spawnInitAmount = 10;
@@ -14,7 +14,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _pooler = new ObstaclePooler(spawnInitAmount);
+        _pooler = new ObstaclePooler(spawnInitAmount, transforms, waveDatas);
     }
 
 }
