@@ -148,4 +148,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 15
-  waitMilliseconds: 2000
+  waitMilliseconds: 1000
+  deathTimer: 10

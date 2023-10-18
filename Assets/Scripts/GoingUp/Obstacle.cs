@@ -13,6 +13,7 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
 
     [Header("ReturnToPool")]
     [SerializeField] private float deathTimer = 10f;
+    public Wave Wave { get; private set; }
     private float _elapsedTime = 0f;
     private Action<Obstacle> _returnAction;
 
@@ -37,6 +38,11 @@ public class Obstacle : MonoBehaviour, IPoolingObject<Obstacle>
     public void Init(Action<Obstacle> returnAction)
     {
         _returnAction = returnAction;
+    }
+
+    public void SetWave(Wave wave)
+    {
+        Wave = wave;
     }
 
     public void ReturnToPool()

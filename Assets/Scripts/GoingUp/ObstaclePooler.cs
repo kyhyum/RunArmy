@@ -33,6 +33,8 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
                     else
                         obstacle = CreateNewObject(data, j);
 
+
+
                     Push(obstacle);
                 }
             }
@@ -46,8 +48,9 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
 
         Transform parent = _transforms[(int)data.Wave];
         Obstacle obstacle = UnityEngine.Object.Instantiate(data.Obstacles[index], parent);
+
+        obstacle.SetWave(data.Wave);
         obstacle.Init(Push);
-        _waveDict[data.Wave].Enqueue(obstacle);
 
         Vector3 offsetScale = new Vector3(
             obstacle.transform.localScale.x / parent.transform.localScale.x,
@@ -72,7 +75,7 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
             obstacle = CreateNewObject(_dataDict[wave]);
         }
 
-        obstacle.transform.position = _transforms[(int)wave].position;
+        obstacle.transform.SetPositionAndRotation(_transforms[(int)wave].position, Quaternion.identity);
         obstacle.gameObject.SetActive(true);
 
         return obstacle;
@@ -81,5 +84,6 @@ public class ObstaclePooler : ObjectPoolerBase<Obstacle>
     private void Push(Obstacle obstacle)
     {
         obstacle.gameObject.SetActive(false);
+        _waveDict[obstacle.Wave].Enqueue(obstacle);
     }
 }
