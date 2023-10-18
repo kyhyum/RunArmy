@@ -54,25 +54,34 @@ public class Cannon : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject t_object = GetQueue();
-        t_object.transform.position = BoomGameObjPosition.transform.position;
+        if (!ShootingGameManager.Instance.gameEndCheck) 
+        {
+              GameObject t_object = GetQueue();
+              t_object.transform.position = BoomGameObjPosition.transform.position;
+        }
     }
 
     public void MoveLeft()
     {
-        if (ShootingGameManager.Instance.cannonstatus > -1)
+        if (!ShootingGameManager.Instance.gameEndCheck)
         {
-            ShootingGameManager.Instance.cannonstatus -= 1;
-            this.transform.position += new Vector3(-2, 0,0);
+            if (ShootingGameManager.Instance.cannonstatus > -1)
+            {
+                ShootingGameManager.Instance.cannonstatus -= 1;
+                this.transform.position += new Vector3(-2, 0,0);
+            }
         }
     }
 
     public void MoveRight()
     {
-        if (ShootingGameManager.Instance.cannonstatus < 1)
+        if (!ShootingGameManager.Instance.gameEndCheck) 
         {
-            ShootingGameManager.Instance.cannonstatus += 1;
-            this.transform.position += new Vector3(2, 0, 0);
+            if (ShootingGameManager.Instance.cannonstatus < 1)
+            {
+                ShootingGameManager.Instance.cannonstatus += 1;
+                this.transform.position += new Vector3(2, 0, 0);
+            }
         }
     }
 }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    float time;
-    GameObject target;
-
     public bool live=false;
     //public float offTime;
     // Start is called before the first frame update
@@ -22,12 +19,12 @@ public class Target : MonoBehaviour
     // Update is called once per frame
     private void OnCollisionEnter(Collision collision)
     {
-       // if (collision.gameObject.tag == "Bomb") 
-       // {
+        if (!ShootingGameManager.Instance.gameEndCheck) 
+        {
             live = false;
             ShootingGameManager.Instance.ScorePlusUpdate();
             this.gameObject.SetActive(false);
-       // }
+        }
 
     }
 }

@@ -22,14 +22,17 @@ public class TargetControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time <= regenTime) 
+        if (!ShootingGameManager.Instance.gameEndCheck) 
         {
-            time += Time.deltaTime;
-        }
-        if (time > regenTime) 
-        {
-            time = 0f;
-            Open();
+            if (time <= regenTime) 
+            {
+                time += Time.deltaTime;
+            }
+            if (time > regenTime) 
+            {
+                time = 0f;
+                Open();
+            }
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ShootingGameManager : MonoBehaviour
 {
-    private bool gameEndCheck=false;
+    public bool gameEndCheck=false;
     public GameObject EndPanel;
 
     public int cannonstatus = Math.Clamp(0, -1, 1);
@@ -37,8 +37,11 @@ public class ShootingGameManager : MonoBehaviour
 
     public void ScorePlusUpdate()
     {
+        if (!ShootingGameManager.Instance.gameEndCheck) 
+        {
         score++;
         Score.text = score.ToString();
+        }
     }
 
     void End()

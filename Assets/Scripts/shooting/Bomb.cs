@@ -16,7 +16,7 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (true)
+        if (!ShootingGameManager.Instance.gameEndCheck)
         {
             transform.Translate(0, 0, speed * Time.deltaTime);
         }
