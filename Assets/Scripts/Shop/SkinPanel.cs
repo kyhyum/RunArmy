@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class SkinPanel : MonoBehaviour
 {
     public SkinSO skinInfo;
-    //public TMP_Text skinNameText;
-    //public TMP_Text priceText;
     public TMP_Text buttonText;
 
     public PlayerSO playerData;
@@ -20,8 +18,6 @@ public class SkinPanel : MonoBehaviour
 
     public void UpdateSkinInfo()
     {
-        //skinNameText.text = skinInfo.skinName;
-        //priceText.text = "АЁАн: " + skinInfo.price;
         UpdateButtonText();
     }
 
@@ -46,7 +42,7 @@ public class SkinPanel : MonoBehaviour
         }
         else
         {
-            buttonText.text = "BUY";
+            buttonText.text = "BUY" + skinInfo.price+"G";
         }
     }
 

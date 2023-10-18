@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Skin02
   m_EditorClassIdentifier: 
   skinName: skin02
-  price: 1
+  price: 100
   locked: 1
   skinPrefab: {fileID: 1194226330181448382, guid: ae459301344c6dd4bb822f3d746f4ec8, type: 3}
