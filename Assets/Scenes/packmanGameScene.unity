@@ -6335,7 +6335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &572143793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11632,6 +11632,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -12708,6 +12720,18 @@ PrefabInstance:
     - target: {fileID: 960568529017728509, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
       propertyPath: m_IsTrigger
@@ -24496,6 +24520,18 @@ PrefabInstance:
     - target: {fileID: 960568529017728509, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
+      propertyPath: m_Size.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6874713485739224470, guid: 4953f32bc68bff74f9f32a37594f12a5, type: 3}
       propertyPath: m_IsTrigger
