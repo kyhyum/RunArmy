@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -11,18 +10,23 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player"))
         {
-            Rigidbody otherRb = other.GetComponent<Rigidbody>();
+            Rigidbody otherRb = collision.collider.GetComponent<Rigidbody>();
             if (otherRb != null)
             {
-               
                 otherRb.AddForce(Vector3.forward * 10, ForceMode.Impulse);
             }
-            PacmanGameManager.Instance.GameOver();
-            Time.timeScale = 0f;
+            if (PacmanGameManager.Instance.score >= 400)
+            {
+                PacmanGameManager.Instance.Success();
+            }
+            else
+            {
+                PacmanGameManager.Instance.GameOver();
+            }
         }
     }
 }
