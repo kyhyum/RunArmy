@@ -21,8 +21,15 @@ public class Enemy : MonoBehaviour
                
                 otherRb.AddForce(Vector3.forward * 10, ForceMode.Impulse);
             }
-            PacmanGameManager.Instance.GameOver();
-            Time.timeScale = 0f;
+            if(PacmanGameManager.Instance.score >= 400)
+            {
+                PacmanGameManager.Instance.Success();
+            }
+            else
+            {
+                PacmanGameManager.Instance.GameOver();
+            }
+            
         }
     }
 }
