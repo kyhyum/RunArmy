@@ -157,7 +157,6 @@ public class CharacterController : MonoBehaviour
     public void SetImmovable()
     {
         _collisionStack++;
-        PlayerSFX.Hit();
 
         if (_collisionStack == 1)
             _canMove = false;
