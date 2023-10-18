@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bd56b88e93e1340be053ce4d8c0140, type: 3}
   m_Name: Medium
   m_EditorClassIdentifier: 
-  <Wave>k__BackingField: 2
-  <SpawnDelayTime>k__BackingField: 2.5
+  <Wave>k__BackingField: 1
+  <SpawnDelayTime>k__BackingField: 1
   <Obstacles>k__BackingField:
   - {fileID: 1703769027879733417, guid: 9209c2c1c762b804fb537a6846fddd72, type: 3}
   - {fileID: 1479761940645527835, guid: 6e0e19ca007817c42bbc16a04a2bafae, type: 3}
