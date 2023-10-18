@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.XR;
 
 public class CharacterController : MonoBehaviour
 {
@@ -22,6 +20,7 @@ public class CharacterController : MonoBehaviour
     bool IsGround;
     public Animator animator;
 
+    [Header("Collision With Obstacle")]
     private bool _canMove = true;
     private int _collisionStack = 0;
 
@@ -137,7 +136,7 @@ public class CharacterController : MonoBehaviour
     }
     public void Jump() 
     {
-        if (IsGround) 
+        if (IsGround && _canMove) 
         {
             animator.SetBool("IsJump",true);
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode.Impulse);
@@ -158,6 +157,7 @@ public class CharacterController : MonoBehaviour
     public void SetImmovable()
     {
         _collisionStack++;
+        PlayerSFX.Hit();
 
         if (_collisionStack == 1)
             _canMove = false;
