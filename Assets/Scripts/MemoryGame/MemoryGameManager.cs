@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class MemoryGameManager : MonoBehaviour
 {
-    //[SerializeField] private List<AudioClip> buttonSoundsList;
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite highlightSprite;
     [SerializeField] private List<Button> clickableButtons;
-    //[SerializeField] private AudioClip loseSound;
-    //[SerializeField] private AudioSource audioSource;
     [SerializeField] private CanvasGroup buttons;
     [SerializeField] private Button startButton;
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -64,7 +61,6 @@ public class MemoryGameManager : MonoBehaviour
     private IEnumerator HighlightButton(int buttonID)
     {
         clickableButtons[buttonID].image.sprite = highlightSprite;
-        //audioSource.PlayOneShot(buttonSoundsList[buttonID]);
         yield return new WaitForSeconds(highlightDuration);
         clickableButtons[buttonID].image.sprite = normalSprite;
         yield return new WaitForSeconds(1f);
@@ -72,7 +68,6 @@ public class MemoryGameManager : MonoBehaviour
 
     private IEnumerator PlayerLost()
     {
-        //audioSource.PlayOneShot(loseSound);
         playerSequenceList.Clear();
         playerTaskList.Clear();
         yield return new WaitForSeconds(2f);
