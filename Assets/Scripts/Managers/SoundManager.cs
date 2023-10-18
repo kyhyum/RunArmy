@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 
 public enum BGM
 {
-
+    GoingUp,
 }
 
 public class SoundManager : MonoBehaviour
@@ -18,7 +18,8 @@ public class SoundManager : MonoBehaviour
     private AudioSource _bgmSource;
     private GameObject _sfxOrigin;
 
-    private const string BGM_PATH = "BGM/";
+    private const string BGM_PATH = "Sounds/BGM/";
+    private const string SFX_PATH = "Sounds/SFX/";
 
     private Dictionary<string, AudioClip> _bgms = new Dictionary<string, AudioClip>();
 
@@ -31,16 +32,15 @@ public class SoundManager : MonoBehaviour
             _bgmSource = gameObject.AddComponent<AudioSource>();
             _bgmSource.outputAudioMixerGroup = _bgmGroup;
             _bgmSource.playOnAwake = false;
+            _bgmSource.loop = true;
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
-    }
 
-    private void Start()
-    {
-        _sfxOrigin = Resources.Load<GameObject>("SFX");
+        _sfxOrigin = Resources.Load<GameObject>(SFX_PATH);
 
         string[] names = Enum.GetNames(typeof(BGM));
         foreach (string name in names)
@@ -49,8 +49,6 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    // TODO
-    // BGM ¿¬°á ·Îµù¾À ÂÊ¿¡¼­ ¾À¸¶´Ù ¹Ù²Ù°Ô²û
     public void PlayBGM(BGM bgm)
     {
         if (_bgmSource.isPlaying)
