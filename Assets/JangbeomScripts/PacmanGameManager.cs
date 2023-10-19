@@ -8,6 +8,7 @@ public class PacmanGameManager : MonoBehaviour
     public static PacmanGameManager Instance;
 
     public int score = 0;
+
     public TMP_Text scoreText;
     public GameObject uiOver;
     public GameObject uiSuccess;
@@ -17,7 +18,7 @@ public class PacmanGameManager : MonoBehaviour
     public AudioSource backgroundMusic;
     public AudioSource successSound;
     public AudioSource overSound;
-
+   
 
     private void Awake()
     {
@@ -58,6 +59,7 @@ public class PacmanGameManager : MonoBehaviour
     public void Success()
     {
         uiSuccess.SetActive(true);
+        
         Time.timeScale = 0f;
 
         successSound.Play();
@@ -66,10 +68,12 @@ public class PacmanGameManager : MonoBehaviour
     public void GameOver()  
     {
         uiOver.SetActive(true);
+        
         Time.timeScale = 0f;
 
         overSound.Play();
     }
+   
     public void Retry()
     {
         uiOver.SetActive(false);
