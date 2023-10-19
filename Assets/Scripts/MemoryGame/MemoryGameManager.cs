@@ -12,6 +12,7 @@ public class MemoryGameManager : MonoBehaviour
     [SerializeField] private CanvasGroup buttons;
     [SerializeField] private Button startButton;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TMP_Text bestScoreText;
 
     private List<int> playerTaskList = new List<int>();
     private List<int> playerSequenceList = new List<int>();
@@ -21,6 +22,8 @@ public class MemoryGameManager : MonoBehaviour
 
     private void Awake()
     {
+        
+
         ResetButtonImages();
         UpdateUI();
     }
@@ -71,6 +74,9 @@ public class MemoryGameManager : MonoBehaviour
         playerSequenceList.Clear();
         playerTaskList.Clear();
         yield return new WaitForSeconds(2f);
+
+        PlayerDataManager.Instance.SaveBestScore(SceneType.MemoryGame, score);
+
         startButton.gameObject.SetActive(true);
         buttons.interactable = false;
     }
@@ -103,6 +109,8 @@ public class MemoryGameManager : MonoBehaviour
 
     public void StartGame()
     {
+        int bestScore = PlayerDataManager.Instance.LoadBestScore(SceneType.MemoryGame);
+        bestScoreText.text = "Best Score: " + bestScore.ToString();
         score = 0;
         UpdateUI();
         StartCoroutine(StartNextRound());

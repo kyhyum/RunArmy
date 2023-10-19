@@ -8,12 +8,12 @@ public class SkinPanel : MonoBehaviour
 {
     public SkinSO skinInfo;
     public TMP_Text buttonText;
-    public PlayerDataController playerDataController;
+    public PlayerPurchase playerPurchase;
 
     private void Start()
     {
         UpdateSkinInfo();
-        skinInfo.locked = !playerDataController.IsSkinPurchased(skinInfo);
+        skinInfo.locked = !playerPurchase.IsSkinPurchased(skinInfo);
     }
 
     public void UpdateSkinInfo()
@@ -41,7 +41,7 @@ public class SkinPanel : MonoBehaviour
         }
         else
         {
-            if (playerDataController.IsSkinPurchased(skinInfo))
+            if (playerPurchase.IsSkinPurchased(skinInfo))
             {
                 buttonText.text = "EQUIP";
                 skinInfo.locked = false;
@@ -55,9 +55,9 @@ public class SkinPanel : MonoBehaviour
 
     private void TryPurchaseSkin()
     {
-        if (playerDataController.playerData.coins >= skinInfo.price && !playerDataController.IsSkinPurchased(skinInfo))
+        if (playerPurchase.playerData.coins >= skinInfo.price && !playerPurchase.IsSkinPurchased(skinInfo))
         {
-            playerDataController.PurchaseSkin(skinInfo);
+            playerPurchase.PurchaseSkin(skinInfo);
             UpdateSkinInfo();
         }
     }
