@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Large
   m_EditorClassIdentifier: 
   <Wave>k__BackingField: 2
-  <SpawnDelayTime>k__BackingField: 5
+  <SpawnDelayTime>k__BackingField: 2.5
   <Obstacles>k__BackingField:
   - {fileID: 4032179645710973468, guid: 88c884ed7e2c4584395860d2a69a4ded, type: 3}
   - {fileID: 9045376269672153503, guid: 20e4a34e0e7e8de4db8dc41b770d2152, type: 3}
