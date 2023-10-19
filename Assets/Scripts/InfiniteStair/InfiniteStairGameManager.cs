@@ -107,7 +107,7 @@ public class InfiniteStairGameManager : MonoBehaviour
     }
     public void Confirm()
     {
-        SceneManager.LoadScene("InfiniteStairScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InfiniteStairScene");
         UIManager.Instance.ClearPopUpDic();
     }
 
