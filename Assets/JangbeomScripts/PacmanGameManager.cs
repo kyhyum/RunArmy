@@ -85,16 +85,6 @@ public class PacmanGameManager : MonoBehaviour
         countdownText.gameObject.SetActive(false);
         Time.timeScale = 1f; // 게임 시작
 
-        //int countdownTime = 3;
-        //while (countdownTime > 0)
-        //{
-        //    countdownText.text = countdownTime.ToString();
-        //    yield return new WaitForSeconds(1);
-        //    countdownTime--;
-        //}
-        //countdownText.text = "GO!";
-        //yield return new WaitForSeconds(1);
-        //countdownText.gameObject.SetActive(false);
-        //Time.timeScale = 1.0f; //게임 시작
+       
     }
 }
