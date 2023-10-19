@@ -9,6 +9,8 @@ public class ROScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     private int score = 0;
 
+    private bool gameEnded = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -23,7 +25,20 @@ public class ROScoreManager : MonoBehaviour
 
     public void IncreaseScore(int points)
     {
-        score += points;
-        scoreText.text = score.ToString();
+        if (!gameEnded)
+        {
+            score += points;
+            scoreText.text = score.ToString();
+        }
+    }
+
+    public void SetGameEnded()
+    {
+        gameEnded = true;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
