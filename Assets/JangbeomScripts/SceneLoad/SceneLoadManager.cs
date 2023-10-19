@@ -33,6 +33,8 @@ public class SceneLoadManager : MonoBehaviour
 
     private Queue<MiniGame> _miniGames = new Queue<MiniGame>();
 
+    public bool IsStoryMode { get; private set; } = false;
+
     private void Awake()
     {
         if (_instance == null)
@@ -68,6 +70,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadNextStoryScene()
     {
+        IsStoryMode = true;
         MiniGame miniGame = _miniGames.Dequeue();
         LoadScene(miniGame.ToString());
     }
@@ -88,6 +91,7 @@ public class SceneLoadManager : MonoBehaviour
     }
     public void ToArcade()
     {
+        IsStoryMode = false;
         LoadScene(SceneType.ArcadeMenuScene);
     }
 
