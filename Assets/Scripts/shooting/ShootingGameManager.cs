@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShootingGameManager : MonoBehaviour
 {
@@ -14,10 +16,10 @@ public class ShootingGameManager : MonoBehaviour
     public float time=30;
     public TextMeshProUGUI Score;
     public int score=0;
-
+    private PlayerDataManager playerDataManager;
 
     public GradeCalculator gradeCalculator;
-    public CalculatorPoint calculatorPoint;
+
 
     public static ShootingGameManager Instance;
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class ShootingGameManager : MonoBehaviour
         Instance = this;
         cannonstatus = 0;
         SoundManager.Instance.PlayBGM(BGM.Shooting);
+        playerDataManager = PlayerDataManager.Instance;
     }
 
     // Update is called once per frame
@@ -54,9 +57,67 @@ public class ShootingGameManager : MonoBehaviour
         {
             gameEndCheck = true;
             SoundManager.Instance.StopBGM();
-            calculatorPoint.CalculateScorePoint(gradeCalculator, score);
+            GameOver();
         }
     }
 
+    public void GameOver()
+    {
+        int gold = 0;
+        string grade;
+        grade = gradeCalculator.CalculateGrade(score, out gold);
+        //아케이드 모드일 경우
+        if (!SceneLoadManager.Instance.IsStoryMode)
+        {
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
 
+            popup.SetValue(score, gold, grade);
+            if (score >= playerDataManager.LoadBestScore(MiniGame.InfiniteStairScene))
+            {
+                playerDataManager.SaveBestScore(MiniGame.InfiniteStairScene, score);
+            }
+        }
+        //스토리 모드일 경우
+        else
+        {
+            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+            if (score >= gradeCalculator.Data.ScoreCriteria[2])
+            {
+                // 깻을 경우
+                popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirmClear, StoryClose);
+                popup.SetText(true);
+            }
+            else
+            {
+                // 못 꺴을 경우
+                popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirmNotClear, StoryClose);
+                popup.SetText(false);
+            }
+        }
+        playerDataManager.SaveBestScore(MiniGame.ParkStageScene2, score, false);
+        playerDataManager.playerData.coins += gold;
+    }
+    public void AcadeConfirm()
+    {
+        SceneManager.LoadScene("ParkStageScene2");
+        UIManager.Instance.ClearPopUpDic();
+    }
+    public void AcadeClose()
+    {
+        SceneLoadManager.Instance.ToArcade();
+    }
+    public void StoryConfirmNotClear()
+    {
+        SceneManager.LoadScene("ParkStageScene2");
+    }
+    public void StoryConfirmClear()
+    {
+        SceneLoadManager.Instance.LoadNextStoryScene();
+    }
+
+    public void StoryClose()
+    {
+        SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
+    }
 }
