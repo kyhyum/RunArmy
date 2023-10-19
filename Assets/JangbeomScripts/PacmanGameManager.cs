@@ -11,8 +11,12 @@ public class PacmanGameManager : MonoBehaviour
     public TMP_Text scoreText;
     public GameObject uiOver;
     public GameObject uiSuccess;
+    public GameObject explainUI;
     public TMP_Text countdownText;
     private float startTime;
+    public AudioSource backgroundMusic;
+    public AudioSource successSound;
+    public AudioSource overSound;
 
 
     private void Awake()
@@ -20,6 +24,7 @@ public class PacmanGameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            
         }
         else
         {
@@ -30,7 +35,7 @@ public class PacmanGameManager : MonoBehaviour
     {
         if (countdownText != null)
         {
-            Time.timeScale = 0f;
+            Time.timeScale = 0f;          
             StartCoroutine(StartGame());
         }
     }
@@ -54,12 +59,16 @@ public class PacmanGameManager : MonoBehaviour
     {
         uiSuccess.SetActive(true);
         Time.timeScale = 0f;
+
+        successSound.Play();
     }
     
     public void GameOver()  
     {
         uiOver.SetActive(true);
         Time.timeScale = 0f;
+
+        overSound.Play();
     }
     public void Retry()
     {
@@ -73,6 +82,11 @@ public class PacmanGameManager : MonoBehaviour
     }
     private IEnumerator StartGame()
     {
+        explainUI.SetActive(true);
+        yield return new WaitForSecondsRealtime(4);
+        explainUI.SetActive(false);
+
+
         countdownText.text = "3";
         startTime = Time.realtimeSinceStartup;
         yield return new WaitForSecondsRealtime(1);
