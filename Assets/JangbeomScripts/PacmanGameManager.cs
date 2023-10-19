@@ -12,7 +12,7 @@ public class PacmanGameManager : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text timeText;
     //public GameObject uiOver;
-    public GameObject uiSuccess;
+    //public GameObject uiSuccess;
     public GameObject explainUI;
     public TMP_Text countdownText;
     private float startTime;
@@ -72,11 +72,10 @@ public class PacmanGameManager : MonoBehaviour
     }
     public void Success()
     {
-        uiSuccess.SetActive(true);       
-        Time.timeScale = 0f;    
-        
-
+        //uiSuccess.SetActive(true);
+  
         successSound.Play();
+        Time.timeScale = 0f;
     }
     public void AcadeConfirm()
     {
@@ -87,11 +86,20 @@ public class PacmanGameManager : MonoBehaviour
     {
         //TODO : æ¿ ¿Ãµø
     }
+    public void StoryConfirm()
+    {
+        //TODO : æ¿ ¿Ãµø
+    }
+
+    public void StoryClose()
+    {
+        //TODO : æ¿ ¿Ãµø
+    }
 
     public void GameOver()  
     {
         //uiOver.SetActive(true);       
-        //Time.timeScale = 0f;
+
         {
             int gold = 0;
             string grade;
@@ -107,6 +115,7 @@ public class PacmanGameManager : MonoBehaviour
         }
 
         overSound.Play();
+        Time.timeScale = 0f; // ∞‘¿” ¿œΩ√¡§¡ˆ
     }
    
     //public void Retry()
