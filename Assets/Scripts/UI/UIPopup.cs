@@ -27,8 +27,8 @@ public class UIPopup: MonoBehaviour
     public virtual void Start()
     {
         confirmButton.onClick.AddListener(Confirm);
-        backButton.onClick.AddListener(Close);
-        cancelButton.onClick.AddListener(Close);
+        backButton.onClick.AddListener(Leave);
+        cancelButton.onClick.AddListener(Leave);
         Refresh();
         PlayShowAnimation();
     }
@@ -69,11 +69,16 @@ public class UIPopup: MonoBehaviour
 
     void Close()
     {
+        UIManager.Instance.ClosePopup(this.gameObject);
+    }
+
+    void Leave()
+    {
         if (onClose != null)
         {
             onClose();
             onClose = null;
         }
-        UIManager.Instance.ClosePopup(this.gameObject);
+        Close();
     }
 }

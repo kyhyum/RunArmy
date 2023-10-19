@@ -35,7 +35,10 @@ public class InfiniteStairGameManager : MonoBehaviour
     public TextMeshProUGUI scoreTxt;
 
     //Grade Calcuator
-    public GradeCalculator gradeCalculator;
+    [SerializeField]private GradeCalculator gradeCalculator;
+
+    //DataManager
+    private PlayerDataManager playerDataManager;
     private void Awake()
     {
         Instance = this;
@@ -44,18 +47,20 @@ public class InfiniteStairGameManager : MonoBehaviour
         upStairPos.Add(new Vector3(1f, 0.6f, 0f));
         upStairPos.Add(new Vector3(0f, 0.6f, 1f));
         upStairPos.Add(new Vector3(-1f, 0.6f, 0f));
+
+        playerDataManager = PlayerDataManager.Instance;
     }
 
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (elapsedTime > 1f && count > 0)
+        if(elapsedTime > 1f && count > 0)
         {
             healthSlider.value -= healthMinus;
             elapsedTime = 0f;
         }
 
-        if (healthSlider.value == 0)
+        if(healthSlider.value == 0)
         {
             GameOver();
         }
@@ -63,7 +68,7 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i< 30; i++)
         {
             SpawnStair();
         }
@@ -102,51 +107,62 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     public void GameOver()
     {
-
-        //아케이드 모드일 경우
+        int gold = 0;
+        string grade;
+        grade = gradeCalculator.CalculateGrade(count, out gold);
         healthMinus = 0;
+        //아케이드 모드일 경우
+        if (!SceneLoadManager.Instance.IsStoryMode)
         {
-            int gold = 0;
-            string grade;
             Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
             popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
 
-            grade = gradeCalculator.CalculateGrade(count, out gold);
             popup.SetValue(count, gold, grade);
-            if (count >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
+            if (count >= playerDataManager.LoadBestScore(MiniGame.InfiniteStairScene))
             {
-                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, count);
+                playerDataManager.SaveBestScore(MiniGame.InfiniteStairScene, count);
             }
         }
         //스토리 모드일 경우
-        //{
-        //    Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
-        //    // 깻을 경우
-        //    popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirm, StoryClose);
-        //    // 못 꺴을 경우
-        //    //popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirm, StoryClose);
+        else{
+            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+            if(count >= gradeCalculator.Data.ScoreCriteria[2])
+            {
+                // 깻을 경우
+                popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirmClear, StoryClose);
+                popup.SetText(true);
+            }
+            else
+            {
+                // 못 꺴을 경우
+                popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirmNotClear, StoryClose);
+                popup.SetText(false);
+            }
+        }
 
-        //    // 클리어 여부 확인
-        //    popup.SetText(true);
-        //}
+        playerDataManager.playerData.coins += gold;
     }
     public void AcadeConfirm()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("InfiniteStairScene");
+        SceneManager.LoadScene("InfiniteStairScene");
         UIManager.Instance.ClearPopUpDic();
     }
     public void AcadeClose()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.LoadScene(SceneType.ArcadeMenuScene);
     }
-    public void StoryConfirm()
+    public void StoryConfirmNotClear()
     {
-        //TODO : 씬 이동
+        SceneManager.LoadScene("InfiniteStairScene");
+    }
+    public void StoryConfirmClear()
+    {
+        SceneLoadManager.Instance.LoadNextStoryScene();
     }
 
     public void StoryClose()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
     }
 
     public void Success()
@@ -154,13 +170,13 @@ public class InfiniteStairGameManager : MonoBehaviour
         count++;
         healthSlider.value += 5;
         scoreTxt.text = count.ToString();
-        if (count % 50 == 0)
+        if(count % 50 == 0)
         {
             int num = skyBoxCount % 4;
             skyBoxSetting.SetSkyBox((Skybox)num);
             skyBoxCount++;
         }
-        if (count >= 7)
+        if(count >= 7)
         {
             stairSpawn.InsertQueue(stairSpawnQueue.Dequeue());
         }
@@ -174,4 +190,3 @@ public class InfiniteStairGameManager : MonoBehaviour
         return temp;
     }
 }
-
