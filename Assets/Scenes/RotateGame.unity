@@ -478,6 +478,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 218710964}
   bestScoreText: {fileID: 911652337}
+  gradeCalculator: {fileID: 25488651957669720}
+  score: 0
 --- !u!1 &509743060
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +492,7 @@ GameObject:
   - component: {fileID: 509743063}
   - component: {fileID: 509743062}
   - component: {fileID: 509743061}
+  - component: {fileID: 509743065}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -582,6 +585,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &509743065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509743060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50868096243288546a2a405990b9c4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &540384043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1609,6 +1624,8 @@ MonoBehaviour:
   initialRotationSpeed: 20
   accelerationRate: 0
   phaseDuration: 15
+  gradeCalculator: {fileID: 25488651957669720}
+  rotateGameScoreManager: {fileID: 505294035}
 --- !u!1 &1459627140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2346,6 +2363,8 @@ MonoBehaviour:
   initialRotationSpeed: 50
   accelerationRate: 30
   phaseDuration: 10
+  gradeCalculator: {fileID: 25488651957669720}
+  rotateGameScoreManager: {fileID: 505294035}
 --- !u!114 &25488651957669720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,6 +2444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8959068927244210780}
   - component: {fileID: 25488651957669720}
+  - component: {fileID: 8959068927244210781}
   m_Layer: 0
   m_Name: GradeCalculator
   m_TagString: Untagged
@@ -2544,6 +2564,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8959068927244210781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729150899424917178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d8ab3d6c8a0844ba6439fc367e52e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 79886232af8bdac4695e5c51ef02c59c, type: 2}
 --- !u!23 &8974064722895665964
 MeshRenderer:
   m_ObjectHideFlags: 0

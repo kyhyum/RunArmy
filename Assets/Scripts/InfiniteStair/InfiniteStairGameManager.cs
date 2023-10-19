@@ -49,13 +49,13 @@ public class InfiniteStairGameManager : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
-        if(elapsedTime > 1f && count > 0)
+        if (elapsedTime > 1f && count > 0)
         {
             healthSlider.value -= healthMinus;
             elapsedTime = 0f;
         }
 
-        if(healthSlider.value == 0)
+        if (healthSlider.value == 0)
         {
             GameOver();
         }
@@ -63,7 +63,7 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i< 30; i++)
+        for (int i = 0; i < 30; i++)
         {
             SpawnStair();
         }
@@ -102,7 +102,7 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     public void GameOver()
     {
-        
+
         //아케이드 모드일 경우
         healthMinus = 0;
         {
@@ -154,13 +154,13 @@ public class InfiniteStairGameManager : MonoBehaviour
         count++;
         healthSlider.value += 5;
         scoreTxt.text = count.ToString();
-        if(count % 50 == 0)
+        if (count % 50 == 0)
         {
             int num = skyBoxCount % 4;
             skyBoxSetting.SetSkyBox((Skybox)num);
             skyBoxCount++;
         }
-        if(count >= 7)
+        if (count >= 7)
         {
             stairSpawn.InsertQueue(stairSpawnQueue.Dequeue());
         }
@@ -174,3 +174,4 @@ public class InfiniteStairGameManager : MonoBehaviour
         return temp;
     }
 }
+

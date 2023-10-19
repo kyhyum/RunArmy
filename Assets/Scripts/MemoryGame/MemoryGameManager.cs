@@ -14,6 +14,8 @@ public class MemoryGameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TMP_Text bestScoreText;
 
+    public GradeCalculator gradeCalculator;
+
     private List<int> playerTaskList = new List<int>();
     private List<int> playerSequenceList = new List<int>();
 
@@ -79,6 +81,8 @@ public class MemoryGameManager : MonoBehaviour
 
         startButton.gameObject.SetActive(true);
         buttons.interactable = false;
+
+        GameOver();
     }
 
     private IEnumerator StartNextRound()
@@ -115,5 +119,29 @@ public class MemoryGameManager : MonoBehaviour
         UpdateUI();
         StartCoroutine(StartNextRound());
         startButton.gameObject.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        int gold = 0;
+        string grade;
+        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+        grade = gradeCalculator.CalculateGrade(score, out gold);
+
+        popup.SetValue(score, gold, grade);
+        PlayerDataManager.Instance.playerData.AddCoins(gold);
+    }
+
+    public void AcadeConfirm()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MemoryGame");
+        UIManager.Instance.ClearPopUpDic();
+    }
+
+    public void AcadeClose()
+    {
+        //TODO : 씬 이동
     }
 }
