@@ -11,7 +11,7 @@ public class PacmanGameManager : MonoBehaviour
 
     public TMP_Text scoreText;
     public TMP_Text timeText;
-    public GameObject uiOver;
+    //public GameObject uiOver;
     public GameObject uiSuccess;
     public GameObject explainUI;
     public TMP_Text countdownText;
@@ -21,7 +21,9 @@ public class PacmanGameManager : MonoBehaviour
     public AudioSource successSound;
     public AudioSource overSound;
 
-    
+    public GradeCalculator gradeCalculator;
+
+
 
 
     private void Awake()
@@ -70,32 +72,53 @@ public class PacmanGameManager : MonoBehaviour
     }
     public void Success()
     {
-        uiSuccess.SetActive(true);
+        uiSuccess.SetActive(true);       
+        Time.timeScale = 0f;    
         
-        Time.timeScale = 0f;
 
         successSound.Play();
     }
-    
+    public void AcadeConfirm()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("packmanGameScene");
+        UIManager.Instance.ClearPopUpDic();
+    }
+    public void AcadeClose()
+    {
+        //TODO : 씬 이동
+    }
+
     public void GameOver()  
     {
-        uiOver.SetActive(true);
-        
-        Time.timeScale = 0f;
+        //uiOver.SetActive(true);       
+        //Time.timeScale = 0f;
+        {
+            int gold = 0;
+            string grade;
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+            grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
+            popup.SetValue(score, gold, grade);
+            if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
+            {
+                PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
+            }
+        }
 
         overSound.Play();
     }
    
-    public void Retry()
-    {
-        uiOver.SetActive(false);
-        uiSuccess.SetActive(false);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1.0f;
+    //public void Retry()
+    //{
+    //    uiOver.SetActive(false);
+    //    uiSuccess.SetActive(false);
+    //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+    //    Time.timeScale = 1.0f;
 
-        score = 0;
+    //    score = 0;
 
-    }
+    //}
     private IEnumerator StartGame()
     {
         explainUI.SetActive(true);
@@ -117,10 +140,10 @@ public class PacmanGameManager : MonoBehaviour
    
     }
 
-    private void SaveData()
-    {
-        PlayerPrefs.SetFloat("PlayTime", playTime);
-        PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.Save();
-    }
+    //private void SaveData()
+    //{
+    //    PlayerPrefs.SetFloat("PlayTime", playTime);
+    //    PlayerPrefs.SetInt("Score", score);
+    //    PlayerPrefs.Save();
+    //}
 }
