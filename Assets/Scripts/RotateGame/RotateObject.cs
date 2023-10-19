@@ -10,10 +10,6 @@ public class RotateObject : MonoBehaviour
     private int rotateDirection = -1;
     private float maxRotationSpeed = 300.0f;
 
-    private bool gameEnded = false;
-
-    [SerializeField] private RewardManager rewardManager;
-
     private void Start()
     {
         rotationSpeed = initialRotationSpeed;
@@ -21,8 +17,6 @@ public class RotateObject : MonoBehaviour
 
     private void Update()
     {
-        if (gameEnded)
-            return;
 
         timeInCurrentPhase += Time.deltaTime;
 
@@ -50,13 +44,6 @@ public class RotateObject : MonoBehaviour
         {
             Debug.Log("Hit");
             Time.timeScale = 0.0f;
-            gameEnded = true;
-            ROScoreManager.Instance.SetGameEnded();
-
-            if (rewardManager != null)
-            {
-                rewardManager.EndGame(ROScoreManager.Instance.GetScore());
-            }
         }
     }
 }
