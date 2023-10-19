@@ -11,7 +11,6 @@ public class PlayerDataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -71,5 +70,10 @@ public class PlayerDataManager : MonoBehaviour
     public int LoadBestScore(MiniGame scene)
     {
         return PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
+    }
+
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

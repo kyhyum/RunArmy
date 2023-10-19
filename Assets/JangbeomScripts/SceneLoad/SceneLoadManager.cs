@@ -110,5 +110,10 @@ public class SceneLoadManager : MonoBehaviour
         IsStoryMode = false;
         LoadScene(SceneType.ArcadeMenuScene);
     }
+    public void ToShop()
+    {
+        IsStoryMode = false;
+        LoadScene(SceneType.ShopScene);
+    }
 
 }

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2589f57d1ad2b04ca99bb802fa58383, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  coins: 240
+  coins: 585
   purchasedSkins:
-  - {fileID: 11400000, guid: 389eaeb18cf66bd4d974a64b942be5dc, type: 2}
-  - {fileID: 11400000, guid: bbdef53d73e4bee44aaa1a0269156d6b, type: 2}
+  - {fileID: 11400000, guid: 47ee2a5700336c74496ae2451ab6bc59, type: 2}

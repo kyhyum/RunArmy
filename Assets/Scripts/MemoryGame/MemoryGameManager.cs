@@ -24,8 +24,6 @@ public class MemoryGameManager : MonoBehaviour
 
     private void Awake()
     {
-        
-
         ResetButtonImages();
         UpdateUI();
     }
