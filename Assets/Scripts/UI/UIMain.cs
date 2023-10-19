@@ -20,7 +20,7 @@ public class UIMain : MonoBehaviour
         Open();
     }
 
-    public virtual void Open() { }
+    public virtual void Open() { Time.timeScale = 0; }
 
     public void Confirm()
     {
@@ -30,7 +30,7 @@ public class UIMain : MonoBehaviour
     
     public virtual void Close()
     {
-
+        Time.timeScale = 1;
     }
 
 }
