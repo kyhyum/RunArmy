@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpecialCoin : MonoBehaviour
 {
     private bool isCollected = false;
+    public AudioSource spcoinSound;
 
     void Update()
     {
@@ -14,6 +15,7 @@ public class SpecialCoin : MonoBehaviour
         {
             isCollected = true;
             Destroy(gameObject);
+            spcoinSound.Play();
             PacmanGameManager.Instance.IncreaseScore(50);
             ApplySpeedBoost(other.gameObject);
         }
