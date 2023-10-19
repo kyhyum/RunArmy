@@ -75,7 +75,7 @@ public class MemoryGameManager : MonoBehaviour
         playerTaskList.Clear();
         yield return new WaitForSeconds(2f);
 
-        PlayerDataManager.Instance.SaveBestScore(SceneType.MemoryGame, score);
+        PlayerDataManager.Instance.SaveBestScore(MiniGame.MemoryGame, score);
 
         startButton.gameObject.SetActive(true);
         buttons.interactable = false;
@@ -109,7 +109,7 @@ public class MemoryGameManager : MonoBehaviour
 
     public void StartGame()
     {
-        int bestScore = PlayerDataManager.Instance.LoadBestScore(SceneType.MemoryGame);
+        int bestScore = PlayerDataManager.Instance.LoadBestScore(MiniGame.MemoryGame);
         bestScoreText.text = "Best Score: " + bestScore.ToString();
         score = 0;
         UpdateUI();

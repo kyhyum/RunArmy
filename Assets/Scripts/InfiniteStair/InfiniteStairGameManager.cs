@@ -121,7 +121,7 @@ public class InfiniteStairGameManager : MonoBehaviour
     }
     public void AcadeConfirm()
     {
-        SceneManager.LoadScene("InfiniteStairScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("InfiniteStairScene");
         UIManager.Instance.ClearPopUpDic();
     }
     public void AcadeClose()
