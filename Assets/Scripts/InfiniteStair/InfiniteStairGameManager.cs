@@ -34,6 +34,8 @@ public class InfiniteStairGameManager : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI scoreTxt;
 
+    //Grade Calcuator
+    public GradeCalculator gradeCalculator;
     private void Awake()
     {
         Instance = this;
@@ -100,24 +102,33 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     public void GameOver()
     {
+        
         //아케이드 모드일 경우
         healthMinus = 0;
-        //{
-        //    Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-        //    popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-        //    popup.SetValue(count, count, "특급");
-        //}
-        //스토리 모드일 경우
         {
-            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
-            // 깻을 경우
-            popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirm, StoryClose);
-            // 못 꺴을 경우
-            //popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirm, StoryClose);
+            int gold = 0;
+            string grade;
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
 
-            // 클리어 여부 확인
-            popup.SetText(true);
+            grade = gradeCalculator.CalculateGrade(count, out gold);
+            popup.SetValue(count, gold, grade);
+            if (count >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
+            {
+                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, count);
+            }
         }
+        //스토리 모드일 경우
+        //{
+        //    Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+        //    // 깻을 경우
+        //    popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirm, StoryClose);
+        //    // 못 꺴을 경우
+        //    //popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirm, StoryClose);
+
+        //    // 클리어 여부 확인
+        //    popup.SetText(true);
+        //}
     }
     public void AcadeConfirm()
     {
