@@ -98,21 +98,23 @@ public class PacmanGameManager : MonoBehaviour
 
     public void GameOver()  
     {
+        
         //uiOver.SetActive(true);       
+        int gold = 0;
+        string grade;
+        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+        grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
+        popup.SetValue(score, gold, grade);
 
+        if (PlayerDataManager.Instance != null) // Check if the instance is not null
         {
-            int gold = 0;
-            string grade;
-            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-
-            grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
-            popup.SetValue(score, gold, grade);
             if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
             {
                 PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
             }
         }
+
 
         overSound.Play();
         Time.timeScale = 0f; // 게임 일시정지
