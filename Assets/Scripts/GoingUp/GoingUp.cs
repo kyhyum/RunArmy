@@ -25,7 +25,7 @@ public class GoingUp : MonoBehaviour
     {
         if (_goingUpUI != null && !_isClear)
         {
-            _elapsedTime = Time.time;
+            _elapsedTime += Time.deltaTime;
             _goingUpUI.ShowElapsedTime(_elapsedTime);
         }
     }

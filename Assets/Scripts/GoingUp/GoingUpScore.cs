@@ -13,8 +13,26 @@ public class GoingUpScore
         {
             Popup_StoryResult result = UIManager.Instance.ShowPopup<Popup_StoryResult>();
             result.PlayShowAnimation();
-            result.SetText(true);
-            result.SetPopup(() => SceneLoadManager.Instance.LoadNextStoryScene(), () => SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentScene));
+
+            bool isClear = integerTime - gradeCalculator.Data.ScoreCriteria[2] <= 0;
+            if (isClear)
+            {
+                result.SetPopup("게임 결과", "다음 스테이지", "나가기",
+                    () => SceneLoadManager.Instance.LoadNextStoryScene(),
+                    () => SceneLoadManager.Instance.ToMain()
+                    );
+            }
+            else
+            {
+                result.SetPopup("게임 결과", "다시하기", "나가기",
+                    () => SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame),
+                    () => SceneLoadManager.Instance.ToMain()
+                    );
+            }
+
+            result.SetText(isClear);
+
+            PlayerDataManager.Instance.SaveBestScore(SceneLoadManager.Instance.CurrentMiniGame, integerTime, true);
         }
         else
         {
@@ -22,10 +40,8 @@ public class GoingUpScore
 
             result.PlayShowAnimation();
             result.SetValue(integerTime, gold, grade, "경과 시간 :");
-
         }
 
+        PlayerDataManager.Instance.playerData.AddCoins(gold);
     }
-
-    
 }

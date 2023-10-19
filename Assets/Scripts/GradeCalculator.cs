@@ -6,7 +6,7 @@ using UnityEngine;
 public class GradeCalculator : MonoBehaviour
 {
     [SerializeField] private GradeData data;
-    [field : SerializeField] public GradeData Data { get => data; }
+    public GradeData Data { get => data; }
     [SerializeField] private string[] grades = new string[5];
     [SerializeField] private int[] golds = new int[5];
 

@@ -36,7 +36,9 @@ public class SceneLoadManager : MonoBehaviour
 
     public bool IsStoryMode { get; private set; } = false;
 
-    public MiniGame CurrentScene = MiniGame.None;
+    public MiniGame CurrentMiniGame = MiniGame.None;
+
+    public int ClearCount { get; set; } = 0;
 
     private void Awake()
     {
@@ -51,12 +53,7 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        InitMiniGames();
-    }
-
-    public void InitMiniGames()
+    private void InitMiniGames()
     {
         _miniGames.Clear();
 
@@ -74,10 +71,24 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadNextStoryScene()
     {
-        IsStoryMode = true;
-        MiniGame miniGame = _miniGames.Dequeue();
-        CurrentScene = miniGame;
-        LoadScene(miniGame);
+        if (IsStoryMode)
+        {
+            if (_miniGames.Count == 0)
+            {
+                LoadScene(SceneType.juchan_endingScene);
+                return;
+            }
+
+            MiniGame miniGame = _miniGames.Dequeue();
+            CurrentMiniGame = miniGame;
+            LoadScene(miniGame);
+        }
+        else
+        {
+            InitMiniGames();
+            IsStoryMode = true;
+            LoadNextStoryScene();
+        }
     }
 
     public void LoadScene(SceneType scene)
