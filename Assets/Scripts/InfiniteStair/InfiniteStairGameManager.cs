@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InfiniteStairGameManager : MonoBehaviour
@@ -30,6 +31,7 @@ public class InfiniteStairGameManager : MonoBehaviour
     private int stairRangeNum = 1;
 
     //UI
+    public Transform canvasTr;
     public Slider healthSlider;
     public TextMeshProUGUI scoreTxt;
 
@@ -99,7 +101,15 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Time.timeScale = 0f;
+        healthMinus = 0;
+        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+        popup.SetPopup("게임 결과", Confirm);
+        popup.SetValue(count, count, "특급");
+    }
+    public void Confirm()
+    {
+        SceneManager.LoadScene("InfiniteStairScene");
+        UIManager.Instance.ClearPopUpDic();
     }
 
     public void Success()

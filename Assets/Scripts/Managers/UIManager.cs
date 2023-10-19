@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class UIManager
 {
     private static UIManager _instance;
+    private Dictionary<string, GameObject> popUpDic = new Dictionary<string, GameObject>();
     public static UIManager Instance
     {
         get
@@ -14,17 +15,29 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private List<UIPopup> popups = new List<UIPopup>();
+    public void ClearPopUpDic()
+    {
+        popUpDic.Clear();
+    }
 
     public UIPopup ShowPopup(string popupname)
     {
-        var obj = Resources.Load("Popups/" + popupname, typeof(GameObject)) as GameObject;
-        if (!obj)
+        if (popUpDic.ContainsKey(popupname))
         {
-            Debug.LogWarning("Failed to ShowPopup" + popupname);
-            return null;
+            Debug.Log("containKey");
+            return ShowPopupWithSceneObject(popupname);
         }
-        return ShowPopupWithPrefab(obj, popupname);
+        else
+        {
+            Debug.Log("!!containKey");
+            var obj = Resources.Load("Popups/" + popupname, typeof(GameObject)) as GameObject;
+            if (!obj)
+            {
+                Debug.LogWarning("Failed to ShowPopup" + popupname);
+                return null;
+            }
+            return ShowPopupWithPrefab(obj, popupname);
+        }
     }
 
     public T ShowPopup<T>() where T : UIPopup
@@ -34,17 +47,33 @@ public class UIManager : MonoBehaviour
 
     public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName)
     {
-        var obj = Instantiate(prefab);
+        var obj = UnityEngine.Object.Instantiate(prefab);
+        popUpDic.Add(popupName, obj);
+        obj.transform.SetParent(InfiniteStairGameManager.Instance.canvasTr, false);
         return ShowPopup(obj, popupName);
+    }
+
+    public UIPopup ShowPopupWithSceneObject(string popupName)
+    {
+        var obj = popUpDic[popupName];
+        var popup = obj.GetComponent<UIPopup>();
+        popup.Refresh();
+        obj.SetActive(true);
+        return popup;
     }
 
     public UIPopup ShowPopup(GameObject obj, string popupname)
     {
         var popup = obj.GetComponent<UIPopup>();
-        popups.Insert(0, popup);
-        
+
         obj.SetActive(true);
-        //obj.transform.SetParent(??, false);
+        return popup;
+    }
+
+    public UIPopup ClosePopup(GameObject obj)
+    {
+        var popup = obj.GetComponent<UIPopup>();
+        obj.SetActive(false);
         return popup;
     }
 }
