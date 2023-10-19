@@ -13,13 +13,13 @@ public class MainMenuUI : MonoBehaviour
     {
         arcadeBtn.onClick.AddListener(() => SceneLoadManager.Instance.ToArcade());
         storyBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadNextStoryScene());
-        storyBtn.onClick.AddListener(() => SceneLoadManager.Instance.ToShop());
+        shopBtn.onClick.AddListener(() => SceneLoadManager.Instance.ToShop());
     }
 
     private void OnDestroy()
     {
         arcadeBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.ToArcade());
         storyBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadNextStoryScene());
-        storyBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.ToShop());
+        shopBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.ToShop());
     }
 }

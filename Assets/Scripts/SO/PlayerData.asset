@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coins: 585
   purchasedSkins:
-  - {fileID: 11400000, guid: 47ee2a5700336c74496ae2451ab6bc59, type: 2}
+  - {fileID: 11400000, guid: 389eaeb18cf66bd4d974a64b942be5dc, type: 2}

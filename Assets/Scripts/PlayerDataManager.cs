@@ -11,6 +11,7 @@ public class PlayerDataManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -21,6 +22,7 @@ public class PlayerDataManager : MonoBehaviour
     private void Start()
     {
         LoadPlayerData();
+        SavePlayerData();
     }
 
     private void OnApplicationQuit()
