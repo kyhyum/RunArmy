@@ -16,6 +16,7 @@ public class TargetControl : MonoBehaviour
         for (int i = 0; i < count; ++i) 
         {
             target[i].gameObject.SetActive(false);
+            target[i].live = false;
         }
     }
 

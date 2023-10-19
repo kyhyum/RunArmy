@@ -7,6 +7,8 @@ using UnityEngine.Audio;
 public enum BGM
 {
     GoingUp,
+    Catch,
+    Shooting,
 }
 
 public class SoundManager : MonoBehaviour

@@ -16,13 +16,17 @@ public class CatchTheSupplyGameManager : MonoBehaviour
 
     public bool gameEndCheck;
 
-    private string rank;
+    public GradeCalculator gradeCalculator;
+    public CalculatorPoint calculatorPoint;
 
-    float time = 30;
+    public float time = 30;
     void Start()
     {
+        SoundManager.Instance.PlayBGM(BGM.Catch);
         gameEndCheck = false;
         Instance = this;
+        //gradeCalculator = GetComponent<GradeCalculator>();
+
     }
 
     // Update is called once per frame
@@ -52,27 +56,9 @@ public class CatchTheSupplyGameManager : MonoBehaviour
         if (time <= 0)
         {
             gameEndCheck = true;
-            EndPanel.SetActive(true);
-            Rank();
+            SoundManager.Instance.StopBGM();
+            calculatorPoint.CalculateScorePoint(gradeCalculator, nowScrore);
         }
     }
-    public void Rank()
-    {
-        if (nowScrore >= 20)
-        {
-            rank = "ЦЏБо";
-        }
-        else if (nowScrore >= 15)
-        {
-            rank = "1Бо";
-        }
-        else if (nowScrore >= 10)
-        {
-            rank = "2Бо";
-        }
-        else
-        {
-            rank = "ЦѓБо";
-        }
-    }
+
 }

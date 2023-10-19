@@ -10,7 +10,7 @@ public class Drop : MonoBehaviour
     private float destroyTime = 0;
     public GameObject spawnOBJ;
     public Spawner spawn;
-    private void Start()
+    public virtual void Start()
     {
         spawn = spawnOBJ.GetComponent<Spawner>();
     }

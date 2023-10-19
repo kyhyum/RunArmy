@@ -7,7 +7,6 @@ using UnityEngine;
 public class ShootingGameManager : MonoBehaviour
 {
     public bool gameEndCheck=false;
-    public GameObject EndPanel;
 
     public int cannonstatus = Math.Clamp(0, -1, 1);
 
@@ -17,8 +16,8 @@ public class ShootingGameManager : MonoBehaviour
     public int score=0;
 
 
-    public string rank;
-    public int bestScore;
+    public GradeCalculator gradeCalculator;
+    public CalculatorPoint calculatorPoint;
 
     public static ShootingGameManager Instance;
     // Start is called before the first frame update
@@ -26,6 +25,7 @@ public class ShootingGameManager : MonoBehaviour
     {
         Instance = this;
         cannonstatus = 0;
+        SoundManager.Instance.PlayBGM(BGM.Shooting);
     }
 
     // Update is called once per frame
@@ -53,28 +53,10 @@ public class ShootingGameManager : MonoBehaviour
         if (time <= 0)
         {
             gameEndCheck = true;
-            EndPanel.SetActive(true);
-            Rank();
+            SoundManager.Instance.StopBGM();
+            calculatorPoint.CalculateScorePoint(gradeCalculator, score);
         }
     }
 
-    public void Rank() 
-    {
-        if (score >= 10)
-        {
-            rank = "ЦЏБо";
-        }
-        else if (score >= 7)
-        {
-            rank = "1Бо";
-        }
-        else if (score >= 5)
-        {
-            rank = "2Бо";
-        }
-        else 
-        {
-            rank = "ЦѓБо";
-        }
-    }
+
 }
