@@ -16,6 +16,10 @@ public class ShootingGameManager : MonoBehaviour
     public TextMeshProUGUI Score;
     public int score=0;
 
+
+    public string rank;
+    public int bestScore;
+
     public static ShootingGameManager Instance;
     // Start is called before the first frame update
     void Start()
@@ -50,6 +54,27 @@ public class ShootingGameManager : MonoBehaviour
         {
             gameEndCheck = true;
             EndPanel.SetActive(true);
+            Rank();
+        }
+    }
+
+    public void Rank() 
+    {
+        if (score >= 10)
+        {
+            rank = "ЦЏБо";
+        }
+        else if (score >= 7)
+        {
+            rank = "1Бо";
+        }
+        else if (score >= 5)
+        {
+            rank = "2Бо";
+        }
+        else 
+        {
+            rank = "ЦѓБо";
         }
     }
 }
