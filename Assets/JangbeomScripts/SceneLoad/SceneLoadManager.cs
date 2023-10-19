@@ -98,6 +98,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadScene(MiniGame miniGame)
     {
+        CurrentMiniGame = miniGame;
         LoadingBar.LoadScene(miniGame.ToString());
     }
 

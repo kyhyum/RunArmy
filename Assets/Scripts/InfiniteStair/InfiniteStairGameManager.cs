@@ -37,8 +37,6 @@ public class InfiniteStairGameManager : MonoBehaviour
     //Grade Calcuator
     [SerializeField]private GradeCalculator gradeCalculator;
 
-    //DataManager
-    private PlayerDataManager playerDataManager;
     private void Awake()
     {
         Instance = this;
@@ -47,8 +45,6 @@ public class InfiniteStairGameManager : MonoBehaviour
         upStairPos.Add(new Vector3(1f, 0.6f, 0f));
         upStairPos.Add(new Vector3(0f, 0.6f, 1f));
         upStairPos.Add(new Vector3(-1f, 0.6f, 0f));
-
-        playerDataManager = PlayerDataManager.Instance;
     }
 
     private void Update()
@@ -115,12 +111,12 @@ public class InfiniteStairGameManager : MonoBehaviour
         if (!SceneLoadManager.Instance.IsStoryMode)
         {
             Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, () => SceneLoadManager.Instance.ToArcade());
 
             popup.SetValue(count, gold, grade);
-            if (count >= playerDataManager.LoadBestScore(MiniGame.InfiniteStairScene))
+            if (count >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
             {
-                playerDataManager.SaveBestScore(MiniGame.InfiniteStairScene, count);
+                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, count);
             }
         }
         //스토리 모드일 경우
@@ -140,7 +136,7 @@ public class InfiniteStairGameManager : MonoBehaviour
             }
         }
 
-        playerDataManager.playerData.coins += gold;
+        PlayerDataManager.Instance.playerData.coins += gold;
     }
     public void AcadeConfirm()
     {

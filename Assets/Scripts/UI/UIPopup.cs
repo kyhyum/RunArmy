@@ -27,7 +27,7 @@ public class UIPopup: MonoBehaviour
     public virtual void Start()
     {
         confirmButton.onClick.AddListener(Confirm);
-        backButton.onClick.AddListener(Leave);
+        backButton.onClick.AddListener(Close);
         cancelButton.onClick.AddListener(Leave);
         Refresh();
         PlayShowAnimation();

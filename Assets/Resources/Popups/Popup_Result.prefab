@@ -758,7 +758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3974748029503204513
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1447,10 +1447,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTitle: {fileID: 8924029890267310366}
-  backButton: {fileID: 6827804387678184306}
+  backButton: {fileID: 4346553167037472970}
   confirmButton: {fileID: 137143079917869764}
   confirmButtonTxt: {fileID: 1884825789021744314}
-  cancelButton: {fileID: 4346553167037472970}
+  cancelButton: {fileID: 6827804387678184306}
   cancelButtonTxt: {fileID: 3604901910655307628}
   animated: 1
   contents: {fileID: 5988370035802937358}
