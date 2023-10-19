@@ -23,6 +23,7 @@ public class CharacterController : MonoBehaviour
     [Header("Collision With Obstacle")]
     private bool _canMove = true;
     private int _collisionStack = 0;
+    private PlayerSFX _playerSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -156,7 +157,11 @@ public class CharacterController : MonoBehaviour
 
     public void SetImmovable()
     {
+        if (!_playerSFX)
+            _playerSFX = GetComponent<PlayerSFX>();
+
         _collisionStack++;
+        _playerSFX.PlayHitClip();
 
         if (_collisionStack == 1)
             _canMove = false;

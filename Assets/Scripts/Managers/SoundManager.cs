@@ -16,10 +16,10 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioMixerGroup _bgmGroup;
     private AudioSource _bgmSource;
-    private GameObject _sfxOrigin;
+    private SFX _sfxOrigin;
 
     private const string BGM_PATH = "Sounds/BGM/";
-    private const string SFX_PATH = "Sounds/SFX/";
+    private const string SFX_PATH = "Sounds/SFX";
 
     private Dictionary<string, AudioClip> _bgms = new Dictionary<string, AudioClip>();
 
@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        _sfxOrigin = Resources.Load<GameObject>(SFX_PATH);
+        _sfxOrigin = Resources.Load<SFX>(SFX_PATH);
 
         string[] names = Enum.GetNames(typeof(BGM));
         foreach (string name in names)
@@ -65,7 +65,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        SFX sfx = Instantiate(_sfxOrigin).GetComponent<SFX>();
+        SFX sfx = Instantiate(_sfxOrigin);
         sfx.Play(clip);
     }
 }

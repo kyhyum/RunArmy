@@ -7,13 +7,8 @@ public class GoingUpUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText;
 
-    void Start()
+    public void ShowElapsedTime(float time)
     {
-        
-    }
-
-    void Update()
-    {
-        timeText.text = Time.time.ToString("F2");
+        timeText.text = time.ToString("F2");
     }
 }

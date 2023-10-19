@@ -4,9 +4,26 @@ using UnityEngine;
 
 public class GoingUp : MonoBehaviour
 {
+    [SerializeField] private GradeData data;
+
+    private GoingUpUI _goingUpUI;
+
+    private void Awake()
+    {
+        _goingUpUI = FindAnyObjectByType<GoingUpUI>();
+    }
+
     void Start()
     {
         SoundManager.Instance.PlayBGM(BGM.GoingUp);
+    }
+
+    private void Update()
+    {
+        if (_goingUpUI != null)
+        {
+            _goingUpUI.ShowElapsedTime(Time.time);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
