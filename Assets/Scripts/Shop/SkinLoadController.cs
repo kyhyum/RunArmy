@@ -13,7 +13,7 @@ public class SkinLoadController : MonoBehaviour
         {
             GameObject skinClone = Instantiate(skinToLoad, transform);
             Destroy(defaultSkin);
-            CharacterController characterController = FindObjectOfType<CharacterController>();
+            CharacterController characterController = GetComponent<CharacterController>();
 
             if (characterController != null)
             {

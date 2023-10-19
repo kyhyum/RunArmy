@@ -90,7 +90,7 @@ public class PacmanGameManager : MonoBehaviour
     {
         uiOver.SetActive(false);
         uiSuccess.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1.0f;
 
         score = 0;

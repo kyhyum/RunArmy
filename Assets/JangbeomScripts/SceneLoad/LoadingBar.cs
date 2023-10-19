@@ -17,12 +17,12 @@ public class LoadingBar : MonoBehaviour
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
-        SceneManager.LoadScene("LoadingScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LoadingScene");
     }
     IEnumerator LoadScene()
     {
         yield return null;
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        AsyncOperation op = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
         while (!op.isDone)
