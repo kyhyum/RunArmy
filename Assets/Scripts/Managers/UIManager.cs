@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class UIManager
+public class UIManager : MonoBehaviour
 {
-    private static UIManager _instance;
+    public static UIManager Instance;
     private Dictionary<string, GameObject> popUpDic = new Dictionary<string, GameObject>();
-    public static UIManager Instance
+
+    private void Awake()
     {
-        get
-        {
-            if (_instance == null)
-                _instance = new UIManager();
-            return _instance;
-        }
+        Instance = this;
     }
 
     public void ClearPopUpDic()
@@ -47,9 +43,9 @@ public class UIManager
 
     public UIPopup ShowPopupWithPrefab(GameObject prefab, string popupName)
     {
-        var obj = UnityEngine.Object.Instantiate(prefab);
+        var obj = Instantiate(prefab);
         popUpDic.Add(popupName, obj);
-        obj.transform.SetParent(InfiniteStairGameManager.Instance.canvasTr, false);
+        obj.transform.SetParent(this.gameObject.transform, false);
         return ShowPopup(obj, popupName);
     }
 
