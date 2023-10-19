@@ -47,7 +47,5 @@ public class GoingUp : MonoBehaviour
         GoingUpScore goingUpScore = new GoingUpScore();
         GradeCalculator gradeCalculator = FindAnyObjectByType<GradeCalculator>();
         goingUpScore.CalculateScore(gradeCalculator, _elapsedTime);
-        // TODO
-        // ShowPopup
     }
 }

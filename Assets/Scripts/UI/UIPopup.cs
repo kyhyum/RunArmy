@@ -50,10 +50,15 @@ public class UIPopup: MonoBehaviour
     public void SetPopup(string title, string confirmButtonTxt, string cancelButtonTxt, Action onConfirm = null, Action onClose = null)
     {
         txtTitle.text = title;
-        this.OnConfirm = onConfirm;
-        this.onClose = onClose;
         this.confirmButtonTxt.text = confirmButtonTxt;
         this.cancelButtonTxt.text = cancelButtonTxt;
+        SetPopup(onConfirm, onClose);
+    }
+
+    public void SetPopup(Action onConfirm, Action onClose)
+    {
+        this.OnConfirm = onConfirm;
+        this.onClose = onClose;
     }
 
     void Confirm()

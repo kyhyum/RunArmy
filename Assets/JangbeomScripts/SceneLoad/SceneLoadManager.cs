@@ -17,6 +17,7 @@ public enum SceneType
 
 public enum MiniGame
 {
+    None,
     packmanGameScene,
     RotateGame,
     MemoryGame,
@@ -34,6 +35,8 @@ public class SceneLoadManager : MonoBehaviour
     private Queue<MiniGame> _miniGames = new Queue<MiniGame>();
 
     public bool IsStoryMode { get; private set; } = false;
+
+    public MiniGame CurrentScene = MiniGame.None;
 
     private void Awake()
     {
@@ -58,6 +61,7 @@ public class SceneLoadManager : MonoBehaviour
         _miniGames.Clear();
 
         List<MiniGame> miniGames = new List<MiniGame>((MiniGame[])Enum.GetValues(typeof(MiniGame)));
+        miniGames.Remove(MiniGame.None);
         int count = miniGames.Count;
 
         for (int i = 0; i < count; i++)
@@ -72,7 +76,8 @@ public class SceneLoadManager : MonoBehaviour
     {
         IsStoryMode = true;
         MiniGame miniGame = _miniGames.Dequeue();
-        LoadScene(miniGame.ToString());
+        CurrentScene = miniGame;
+        LoadScene(miniGame);
     }
 
     public void LoadScene(SceneType scene)
@@ -80,9 +85,9 @@ public class SceneLoadManager : MonoBehaviour
         LoadingBar.LoadScene(scene.ToString());
     }
 
-    public void LoadScene(string scene)
+    public void LoadScene(MiniGame miniGame)
     {
-        LoadingBar.LoadScene(scene);
+        LoadingBar.LoadScene(miniGame.ToString());
     }
 
     public void ToMain()

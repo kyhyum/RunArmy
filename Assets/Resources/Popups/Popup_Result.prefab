@@ -1457,6 +1457,7 @@ MonoBehaviour:
   scoreValueTxt: {fileID: 6168193212555300212}
   moneyValueTxt: {fileID: 8368549421852212517}
   degreeValueTxt: {fileID: 1964596721562316467}
+  scoreTxt: {fileID: 3871311142900198498}
 --- !u!1 &6342648932285162243
 GameObject:
   m_ObjectHideFlags: 0
