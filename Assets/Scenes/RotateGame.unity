@@ -442,7 +442,6 @@ GameObject:
   m_Component:
   - component: {fileID: 505294034}
   - component: {fileID: 505294035}
-  - component: {fileID: 505294036}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -479,19 +478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 218710964}
   bestScoreText: {fileID: 911652337}
---- !u!114 &505294036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 505294033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d8ab3d6c8a0844ba6439fc367e52e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 79886232af8bdac4695e5c51ef02c59c, type: 2}
 --- !u!1 &509743060
 GameObject:
   m_ObjectHideFlags: 0

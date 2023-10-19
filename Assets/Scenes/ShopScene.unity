@@ -456,6 +456,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 389eaeb18cf66bd4d974a64b942be5dc, type: 2}
     - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
+      propertyPath: playerPurchase
+      value: 
+      objectReference: {fileID: 1890291553}
+    - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
       propertyPath: playerDataController
       value: 
       objectReference: {fileID: 1890291553}
@@ -584,6 +588,10 @@ PrefabInstance:
       propertyPath: skinInfo
       value: 
       objectReference: {fileID: 11400000, guid: bbdef53d73e4bee44aaa1a0269156d6b, type: 2}
+    - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
+      propertyPath: playerPurchase
+      value: 
+      objectReference: {fileID: 1890291553}
     - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
       propertyPath: playerDataController
       value: 
@@ -1306,6 +1314,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 47ee2a5700336c74496ae2451ab6bc59, type: 2}
     - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
+      propertyPath: playerPurchase
+      value: 
+      objectReference: {fileID: 1890291553}
+    - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
       propertyPath: playerDataController
       value: 
       objectReference: {fileID: 1890291553}
@@ -1582,6 +1594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2748945298826576892}
     m_Modifications:
+    - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
+      propertyPath: playerPurchase
+      value: 
+      objectReference: {fileID: 1890291553}
     - target: {fileID: 1283444294974470500, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
       propertyPath: playerDataController
       value: 
