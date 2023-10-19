@@ -42,7 +42,7 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveBestScore(SceneType scene, int score)
+    public void SaveBestScore(MiniGame scene, int score)
     {
         int currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
         if (score > currentBestScore)
@@ -52,7 +52,7 @@ public class PlayerDataManager : MonoBehaviour
         }
     }
 
-    public int LoadBestScore(SceneType scene)
+    public int LoadBestScore(MiniGame scene)
     {
         return PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
     }
