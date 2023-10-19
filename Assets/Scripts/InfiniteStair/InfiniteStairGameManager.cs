@@ -34,6 +34,8 @@ public class InfiniteStairGameManager : MonoBehaviour
     public Slider healthSlider;
     public TextMeshProUGUI scoreTxt;
 
+    //Grade Calcuator
+    public GradeCalculator gradeCalculator;
     private void Awake()
     {
         Instance = this;

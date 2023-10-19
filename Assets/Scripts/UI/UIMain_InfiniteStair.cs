@@ -18,8 +18,7 @@ public class InfiniteStair_UIMain : MonoBehaviour
         Popup_Pause popup = UIManager.Instance.ShowPopup<Popup_Pause>();
         popup.PlayShowAnimation();
         popup.SetPopup("일시정지","다시 시작", "게임 재개", Confirm, Close);
-        popup.Refresh();
-        temp = popup.temp;
+        temp = InfiniteStairGameManager.Instance.healthMinus;
     }
 
     public void Confirm()

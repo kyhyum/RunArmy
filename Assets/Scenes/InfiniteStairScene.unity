@@ -1246,9 +1246,9 @@ MonoBehaviour:
   count: 0
   healthMinus: 1
   skyBoxSetting: {fileID: 1979442113}
-  stairSpawn: {fileID: 1138293884}
   healthSlider: {fileID: 1108636596}
   scoreTxt: {fileID: 1347004255}
+  gradeCalculator: {fileID: 0}
 --- !u!4 &271977953
 Transform:
   m_ObjectHideFlags: 0
@@ -1346,6 +1346,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4457217087277678, guid: 1b02492fc66581741a9c5fd08841f769, type: 3}
   m_PrefabInstance: {fileID: 272568055}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &273387622
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 273387624}
+  - component: {fileID: 273387623}
+  m_Layer: 0
+  m_Name: GradeCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &273387623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273387622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ee5a1dd819dd248bbb467a18c6c7e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 65c1412c7e8afce4da899f75cc1a8767, type: 2}
+  grades:
+  - "\uD2B9\uAE09"
+  - "1\uAE09"
+  - "2\uAE09"
+  - "3\uAE09"
+  - "4\uAE09"
+  golds: 640000004b00000032000000190000000a000000
+--- !u!4 &273387624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273387622}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &273873421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2780,7 +2832,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619796864}
-  m_LocalRotation: {x: 0.087155774, y: -1.9156452e-16, z: -1.6759735e-17, w: 0.9961947}
+  m_LocalRotation: {x: 0.087155774, y: 1.9156455e-16, z: 1.6759735e-17, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 4.544753, z: -8.1936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3834,7 +3886,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838607358}
-  m_LocalRotation: {x: 0.087155774, y: -1.9156452e-16, z: -1.6759735e-17, w: 0.9961947}
+  m_LocalRotation: {x: 0.087155774, y: 1.9156455e-16, z: 1.6759735e-17, w: 0.9961947}
   m_LocalPosition: {x: 0, y: 4.544753, z: -8.1936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
