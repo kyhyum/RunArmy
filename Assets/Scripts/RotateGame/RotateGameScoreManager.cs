@@ -10,7 +10,7 @@ public class RotateGameScoreManager : MonoBehaviour
 
     private void Start()
     {
-        int bestScore = PlayerDataManager.Instance.LoadBestScore(SceneType.RotateGame);
+        int bestScore = PlayerDataManager.Instance.LoadBestScore(MiniGame.RotateGame);
         bestScoreText.text = "Best Score: " + bestScore.ToString();
     }
 
@@ -18,6 +18,6 @@ public class RotateGameScoreManager : MonoBehaviour
     {
         score += points;
         scoreText.text = score.ToString();
-        PlayerDataManager.Instance.SaveBestScore(SceneType.RotateGame, score);
+        PlayerDataManager.Instance.SaveBestScore(MiniGame.RotateGame, score);
     }
 }
