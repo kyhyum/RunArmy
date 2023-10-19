@@ -293,6 +293,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &45524319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45524312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b56574926fe940479f9206914b3f39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoundSource: {fileID: 8300000, guid: 48e8921c61786c147b2bd9e41f41cb35, type: 3}
 --- !u!1001 &47060247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -927,6 +940,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6696924500112456852, guid: d675166d9667ef14b8c76f1045224527, type: 3}
       insertIndex: -1
       addedObject: {fileID: 45524318}
+    - targetCorrespondingSourceObject: {fileID: 6696924500112456852, guid: d675166d9667ef14b8c76f1045224527, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 45524319}
   m_SourcePrefab: {fileID: 100100000, guid: d675166d9667ef14b8c76f1045224527, type: 3}
 --- !u!4 &145455155 stripped
 Transform:
@@ -6493,6 +6509,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d64cf1bb9d6db5458fc4331eed07b15, type: 3}
+--- !u!1001 &1586696062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1515356208340469019, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506158183642132776, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ee14e1f7e6fc9f4f9f87c5e5baf9597, type: 3}
 --- !u!4 &1590714591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4339546869008292, guid: 57bca5bb26005a249ad8ad0575e31693, type: 3}

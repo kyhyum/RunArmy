@@ -21,6 +21,7 @@ public class CatchTheSupplyGameManager : MonoBehaviour
     float time = 30;
     void Start()
     {
+        SoundManager.Instance.PlayBGM(BGM.Catch);
         gameEndCheck = false;
         Instance = this;
     }

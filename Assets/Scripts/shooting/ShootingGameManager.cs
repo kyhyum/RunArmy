@@ -26,6 +26,7 @@ public class ShootingGameManager : MonoBehaviour
     {
         Instance = this;
         cannonstatus = 0;
+        SoundManager.Instance.PlayBGM(BGM.Shooting);
     }
 
     // Update is called once per frame

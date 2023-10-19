@@ -11,7 +11,7 @@ public class Cannon : MonoBehaviour
     public Queue<GameObject> T_queue;
     public int count = 20;
     public GameObject BoomGameObjPosition;
-
+    public EnterSFX EnterSFX;
     private void Awake()
     {
         T_queue = new Queue<GameObject>();
@@ -20,6 +20,7 @@ public class Cannon : MonoBehaviour
 
     void Start()
     {
+        EnterSFX = GetComponent<EnterSFX>();
         for (int i = 0; i < count; i++)
         {
             GameObject choiceModel = Model[Random.Range(0, Model.Count())];
@@ -56,6 +57,7 @@ public class Cannon : MonoBehaviour
     {
         if (!ShootingGameManager.Instance.gameEndCheck) 
         {
+              EnterSFX.SoundClipStart();
               GameObject t_object = GetQueue();
               t_object.transform.position = BoomGameObjPosition.transform.position;
         }
