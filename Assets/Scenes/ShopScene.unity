@@ -721,6 +721,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
+--- !u!1 &524981311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524981313}
+  - component: {fileID: 524981312}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &524981312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524981311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d8ab3d6c8a0844ba6439fc367e52e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 79886232af8bdac4695e5c51ef02c59c, type: 2}
+--- !u!4 &524981313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524981311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 181.83618, y: 619.83044, z: -0.93159854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &561830169 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7474998071885669524, guid: a88db7aa46eecea4a98e98f93b103ed2, type: 3}
@@ -1484,7 +1529,6 @@ GameObject:
   - component: {fileID: 1890291551}
   - component: {fileID: 1890291553}
   - component: {fileID: 1890291554}
-  - component: {fileID: 1890291555}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1546,19 +1590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 79886232af8bdac4695e5c51ef02c59c, type: 2}
   goldText: {fileID: 1765123304}
---- !u!114 &1890291555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890291550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d8ab3d6c8a0844ba6439fc367e52e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 79886232af8bdac4695e5c51ef02c59c, type: 2}
 --- !u!1 &1965344443
 GameObject:
   m_ObjectHideFlags: 0
