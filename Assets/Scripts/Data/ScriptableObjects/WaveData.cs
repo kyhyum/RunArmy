@@ -11,7 +11,6 @@ public enum Wave
 }
 
 [CreateAssetMenu(fileName = "Default", menuName = "Create/Wave")]
-[Serializable]
 public class WaveData : ScriptableObject
 {
     [field: SerializeField] public Wave Wave { get; private set; }
