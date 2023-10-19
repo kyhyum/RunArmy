@@ -15,25 +15,25 @@ public class ArcadeMenuUI : MonoBehaviour
     [SerializeField] private Button returnBtn;
     void Start()
     {
-        goingUpBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.GoingUp.ToString()));
-        packManBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.packmanGameScene.ToString()));
-        clockJumpBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.RotateGame.ToString()));
-        rainDropBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene.ToString()));
-        infinityStairsBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.InfiniteStairScene.ToString()));
-        memoryBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.MemoryGame.ToString()));
-        shootingBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene2.ToString()));
+        goingUpBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.GoingUp));
+        packManBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.packmanGameScene));
+        clockJumpBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.RotateGame));
+        rainDropBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene));
+        infinityStairsBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.InfiniteStairScene));
+        memoryBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.MemoryGame));
+        shootingBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene2));
         returnBtn.onClick.AddListener(() => SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene));
     }
 
     private void OnDestroy()
     {
-        goingUpBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.GoingUp.ToString()));
-        packManBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.packmanGameScene.ToString()));
-        clockJumpBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.RotateGame.ToString()));
-        rainDropBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene.ToString()));
-        infinityStairsBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.InfiniteStairScene.ToString()));
-        memoryBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.MemoryGame.ToString()));
-        shootingBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene2.ToString()));
+        goingUpBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.GoingUp));
+        packManBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.packmanGameScene));
+        clockJumpBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.RotateGame));
+        rainDropBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene));
+        infinityStairsBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.InfiniteStairScene));
+        memoryBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.MemoryGame));
+        shootingBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(MiniGame.ParkStageScene2));
         returnBtn.onClick.RemoveListener(() => SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene));
     }
 

@@ -7,6 +7,8 @@ public class GoingUp : MonoBehaviour
     [SerializeField] private GradeData data;
 
     private GoingUpUI _goingUpUI;
+    private float _elapsedTime = 0f;
+    private bool _isClear;
 
     private void Awake()
     {
@@ -16,13 +18,15 @@ public class GoingUp : MonoBehaviour
     void Start()
     {
         SoundManager.Instance.PlayBGM(BGM.GoingUp);
+        
     }
 
     private void Update()
     {
-        if (_goingUpUI != null)
+        if (_goingUpUI != null && !_isClear)
         {
-            _goingUpUI.ShowElapsedTime(Time.time);
+            _elapsedTime += Time.deltaTime;
+            _goingUpUI.ShowElapsedTime(_elapsedTime);
         }
     }
 
@@ -35,11 +39,13 @@ public class GoingUp : MonoBehaviour
         }
     }
 
-    private void Clear(CharacterController controller)
+    public void Clear(CharacterController controller)
     {
+        _isClear = true;
         controller.enabled = false;
         SoundManager.Instance.StopBGM();
-        // TODO
-        // ShowPopup
+        GoingUpScore goingUpScore = new GoingUpScore();
+        GradeCalculator gradeCalculator = FindAnyObjectByType<GradeCalculator>();
+        goingUpScore.CalculateScore(gradeCalculator, _elapsedTime);
     }
 }

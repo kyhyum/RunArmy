@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ed47490af95174ab3a462a5d920d43, type: 3}
   m_Name: GoingUp
   m_EditorClassIdentifier: 
-  <ScoreCriteria>k__BackingField: 640000004b000000320000001900000000000000
+  <ScoreCriteria>k__BackingField: 28000000320000003c0000004600000050000000

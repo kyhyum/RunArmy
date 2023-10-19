@@ -6,6 +6,7 @@ using UnityEngine;
 public class GoingUpUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timeText;
+    private GameObject resultUI;
 
     public void ShowElapsedTime(float time)
     {
