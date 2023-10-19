@@ -16,6 +16,9 @@ public class ShootingGameManager : MonoBehaviour
     public int score=0;
 
 
+    public GradeCalculator gradeCalculator;
+    public CalculatorPoint calculatorPoint;
+
     public static ShootingGameManager Instance;
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,8 @@ public class ShootingGameManager : MonoBehaviour
         if (time <= 0)
         {
             gameEndCheck = true;
+            SoundManager.Instance.StopBGM();
+            calculatorPoint.CalculateScorePoint(gradeCalculator, score);
         }
     }
 
