@@ -1289,7 +1289,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Special coin gives 50 pts and Speed for 3 sec
+  m_text: "\uC2A4\uD398\uC15C \uCF54\uC778\uC740 50\uC810\uC744 \uC8FC\uACE0 3\uCD08\uAC04
+    \uC2A4\uD53C\uB4DC\uB97C \uB298\uB824\uC90D\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
   m_sharedMaterial: {fileID: -4773238826205122601, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
@@ -5246,7 +5247,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Normal coin gives 10 pts
+  m_text: "\uB178\uB9D0 \uCF54\uC778\uC740 10\uC810\uC744 \uC90D\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
   m_sharedMaterial: {fileID: -4773238826205122601, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
@@ -17826,7 +17827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Clear!!
+  m_text: GAME CLEAR!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
   m_sharedMaterial: {fileID: -4773238826205122601, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
@@ -20213,8 +20214,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.7925, y: -102.377686}
-  m_SizeDelta: {x: 228.9426, y: 79.2447}
+  m_AnchoredPosition: {x: 26, y: -106.11084}
+  m_SizeDelta: {x: 283.6955, y: 86.711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1626534916
 MonoBehaviour:
@@ -24867,9 +24868,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '400pts >= ,Game Clear
-
-    400pts < ,Game Over'
+  m_text: "400\uC810 \uC774\uC0C1\uC740 \uAC8C\uC784 \uD074\uB9AC\uC5B4!\n400\uC810
+    \uBBF8\uB9CC\uC740 \uAC8C\uC784 \uC624\uBC84!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
   m_sharedMaterial: {fileID: -4773238826205122601, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
@@ -25193,7 +25193,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TO NEXT
+  m_text: "\uB2E4\uC74C \uC2A4\uD14C\uC774\uC9C0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
   m_sharedMaterial: {fileID: -4773238826205122601, guid: 7f37758cf419c69418b918bf501813e1, type: 2}
