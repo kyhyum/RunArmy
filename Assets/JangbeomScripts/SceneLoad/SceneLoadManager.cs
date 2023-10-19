@@ -98,6 +98,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadScene(MiniGame miniGame)
     {
+        CurrentMiniGame = miniGame;
         LoadingBar.LoadScene(miniGame.ToString());
     }
 
@@ -109,6 +110,11 @@ public class SceneLoadManager : MonoBehaviour
     {
         IsStoryMode = false;
         LoadScene(SceneType.ArcadeMenuScene);
+    }
+    public void ToShop()
+    {
+        IsStoryMode = false;
+        LoadScene(SceneType.ShopScene);
     }
 
 }
