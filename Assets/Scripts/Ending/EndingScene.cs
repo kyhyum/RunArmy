@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,23 +25,15 @@ public class EndingScene : MonoBehaviour
     [SerializeField] private GameObject selectBackground;
     [SerializeField] private TextMeshProUGUI announcementText;
     [SerializeField] private Button mainButton;
-    [SerializeField] private Button retryButton;
 
     [Header("Ending Sounds")]
     [SerializeField] private AudioClip clearClip;
     [SerializeField] private AudioClip failClip;
 
-    private void OnEnable()
-    {
-        // TODO
-        // StartScene 이동
-        // MainMenuScene 이동
-        // 버튼 연결
-    }
-
     private void Start()
     {
-        ShowGameOver();
+        mainButton.onClick.AddListener(() => SceneLoadManager.Instance.ToMain());
+        ShowEnding();
     }
 
     private void Update()
@@ -51,20 +44,17 @@ public class EndingScene : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
+        mainButton.onClick.RemoveListener(() => SceneLoadManager.Instance.ToMain());
     }
 
-    public void ShowEnding(bool isClear)
+    public void ShowEnding()
     {
-        if (isClear)
-        {
+        if (SceneLoadManager.Instance.ClearCount > Enum.GetValues(typeof(MiniGame)).Length / 2)
             ShowClear();
-        }
         else
-        {
             ShowGameOver();
-        }
     }
 
     private void ShowClear()
@@ -78,6 +68,8 @@ public class EndingScene : MonoBehaviour
         announcementText.text = "무사히 전역하셨습니다!";
 
         SoundManager.Instance.PlaySFX(clearClip);
+
+        SceneLoadManager.Instance.ClearCount = 0;
     }
 
     private void ShowGameOver()
@@ -88,7 +80,9 @@ public class EndingScene : MonoBehaviour
         gutgunText.text = "어서와.";
         himchanText.text = "훈련소는 처음이지?";
 
-        announcementText.text = "입영일자로 회귀하였습니다.\n다시하시겠습니까?";
+        announcementText.text = "입영일자로 회귀하였습니다.";
         SoundManager.Instance.PlaySFX(failClip);
+
+        SceneLoadManager.Instance.ClearCount = 0;
     }
 }
