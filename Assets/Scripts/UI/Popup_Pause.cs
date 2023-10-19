@@ -6,10 +6,5 @@ using UnityEngine.UI;
 
 public class Popup_Pause : UIPopup
 {
-    public int temp;
-    public override void Refresh()
-    {
-        temp = InfiniteStairGameManager.Instance.healthMinus;
-        InfiniteStairGameManager.Instance.healthMinus = 0;
-    }
+
 }
