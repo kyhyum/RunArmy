@@ -4,6 +4,7 @@ using UnityEngine;
 public enum SceneType
 {
     RotateGame,
+    MemoryGame,
 }
 
 public class GradeCalculator : MonoBehaviour
