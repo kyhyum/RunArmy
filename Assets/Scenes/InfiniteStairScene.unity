@@ -1247,7 +1247,6 @@ MonoBehaviour:
   healthMinus: 1
   skyBoxSetting: {fileID: 1979442113}
   stairSpawn: {fileID: 1138293884}
-  canvasTr: {fileID: 1625321445}
   healthSlider: {fileID: 1108636596}
   scoreTxt: {fileID: 1347004255}
 --- !u!4 &271977953
@@ -6516,7 +6515,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 373b2985ce5bf2d4e9087e510d761960, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 189774240e23ac34aa7257ee986257ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7541,6 +7540,7 @@ GameObject:
   - component: {fileID: 1625321443}
   - component: {fileID: 1625321442}
   - component: {fileID: 1625321446}
+  - component: {fileID: 1625321447}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7648,6 +7648,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingButton: {fileID: 5757020311854658786}
+  temp: 0
+--- !u!114 &1625321447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625321441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50868096243288546a2a405990b9c4ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1675065714
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9265,7 +9278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.6862745, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

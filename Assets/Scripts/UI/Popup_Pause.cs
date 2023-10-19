@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Popup_Setting : UIPopup
+public class Popup_Pause : UIPopup
 {
     public int temp;
     public override void Refresh()
