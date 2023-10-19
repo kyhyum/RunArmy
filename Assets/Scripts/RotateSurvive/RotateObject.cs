@@ -46,4 +46,6 @@ public class RotateObject : MonoBehaviour
             Time.timeScale = 0.0f;
         }
     }
+
+
 }

@@ -4,6 +4,20 @@ public class PlayerDataManager : MonoBehaviour
 {
     public PlayerSO playerData;
 
+    public static PlayerDataManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         LoadPlayerData();
@@ -26,5 +40,20 @@ public class PlayerDataManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Coins", playerData.coins);
         PlayerPrefs.Save();
+    }
+
+    public void SaveBestScore(SceneType scene, int score)
+    {
+        int currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
+        if (score > currentBestScore)
+        {
+            PlayerPrefs.SetInt(scene.ToString() + "_BestScore", score);
+            PlayerPrefs.Save();
+        }
+    }
+
+    public int LoadBestScore(SceneType scene)
+    {
+        return PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
     }
 }
