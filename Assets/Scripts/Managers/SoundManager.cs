@@ -58,6 +58,11 @@ public class SoundManager : MonoBehaviour
         _bgmSource.Play();
     }
 
+    public void StopBGM()
+    {
+        _bgmSource.Stop();
+    }
+
     public void PlaySFX(AudioClip clip)
     {
         SFX sfx = Instantiate(_sfxOrigin).GetComponent<SFX>();
