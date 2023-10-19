@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-   
+    public AudioSource coinSound;
   
 
     void Update()
@@ -14,6 +14,7 @@ public class Coin : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
+            coinSound.Play();
             PacmanGameManager.Instance.IncreaseScore(10);
         }            
     }  
