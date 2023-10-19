@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RotateObject : MonoBehaviour
 {
@@ -55,14 +56,34 @@ public class RotateObject : MonoBehaviour
     {
         int gold = 0;
         string grade;
-        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-
         int count = rotateGameScoreManager.score;
-        grade = gradeCalculator.CalculateGrade(count, out gold);
 
-        popup.SetValue(count, gold, grade);
-        PlayerDataManager.Instance.playerData.AddCoins(gold);
+        if (!SceneLoadManager.Instance.IsStoryMode)
+        {
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+            
+            grade = gradeCalculator.CalculateGrade(count, out gold);
+
+            popup.SetValue(count, gold, grade);
+            PlayerDataManager.Instance.playerData.AddCoins(gold);
+        }
+        else
+        {
+            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+            if (count >= gradeCalculator.Data.ScoreCriteria[2])
+            {
+                popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirmClear, StoryClose);
+                popup.SetText(true);
+            }
+            else
+            {
+                popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirmNotClear, StoryClose);
+                popup.SetText(false);
+            }
+        }
+            
     }
 
     public void AcadeConfirm()
@@ -73,6 +94,20 @@ public class RotateObject : MonoBehaviour
 
     public void AcadeClose()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.ToMain();
+    }
+
+    public void StoryConfirmClear()
+    {
+        SceneLoadManager.Instance.LoadNextStoryScene();
+    }
+
+    public void StoryClose()
+    {
+        SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
+    }
+    public void StoryConfirmNotClear()
+    {
+        SceneManager.LoadScene("InfiniteStairScene");
     }
 }
