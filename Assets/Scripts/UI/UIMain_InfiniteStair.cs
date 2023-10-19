@@ -10,16 +10,16 @@ public class InfiniteStair_UIMain : MonoBehaviour
     [SerializeField] private int temp;
     private void Awake()
     {
-        settingButton.onClick.AddListener(OpenPopup_Setting);
+        settingButton.onClick.AddListener(OpenPopup_Pause);
     }
 
-    public void OpenPopup_Setting()
+    public void OpenPopup_Pause()
     {
-        Popup_Setting popup = UIManager.Instance.ShowPopup<Popup_Setting>();
+        Popup_Pause popup = UIManager.Instance.ShowPopup<Popup_Pause>();
         popup.PlayShowAnimation();
-        popup.SetPopup("환경설정", Confirm, Close);
-        popup.Refresh();
-        temp = popup.temp;
+        popup.SetPopup("일시정지","다시 시작", "게임 재개", Confirm, Close);
+        temp = InfiniteStairGameManager.Instance.healthMinus;
+        InfiniteStairGameManager.Instance.healthMinus = 0;
     }
 
     public void Confirm()

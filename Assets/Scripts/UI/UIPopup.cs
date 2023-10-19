@@ -10,9 +10,13 @@ using UnityEngine.UI;
 public class UIPopup: MonoBehaviour
 {
     [SerializeField] private TMP_Text txtTitle;
-    [SerializeField] private Button confirmButton;
     [SerializeField] private Button backButton;
+
+    [SerializeField] private Button confirmButton;
+    [SerializeField] private TMP_Text confirmButtonTxt;
+
     [SerializeField] private Button cancelButton;
+    [SerializeField] private TMP_Text cancelButtonTxt;
 
     public bool animated = false;
 
@@ -43,11 +47,13 @@ public class UIPopup: MonoBehaviour
 
     }
 
-    public void SetPopup(string title, Action onConfirm = null, Action onClose = null)
+    public void SetPopup(string title, string confirmButtonTxt, string cancelButtonTxt, Action onConfirm = null, Action onClose = null)
     {
         txtTitle.text = title;
         this.OnConfirm = onConfirm;
         this.onClose = onClose;
+        this.confirmButtonTxt.text = confirmButtonTxt;
+        this.cancelButtonTxt.text = cancelButtonTxt;
     }
 
     void Confirm()
