@@ -71,4 +71,9 @@ public class PlayerDataManager : MonoBehaviour
     {
         return PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
     }
+
+    public void ResetData()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

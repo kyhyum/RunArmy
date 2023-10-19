@@ -10,6 +10,9 @@ public class RotateObject : MonoBehaviour
     private int rotateDirection = -1;
     private float maxRotationSpeed = 300.0f;
 
+    public GradeCalculator gradeCalculator;
+    public RotateGameScoreManager rotateGameScoreManager;
+
     private void Start()
     {
         rotationSpeed = initialRotationSpeed;
@@ -44,6 +47,32 @@ public class RotateObject : MonoBehaviour
         {
             Debug.Log("Hit");
             Time.timeScale = 0.0f;
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+        int gold = 0;
+        string grade;
+        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+        int count = rotateGameScoreManager.score;
+        grade = gradeCalculator.CalculateGrade(count, out gold);
+
+        popup.SetValue(count, gold, grade);
+        PlayerDataManager.Instance.playerData.AddCoins(gold);
+    }
+
+    public void AcadeConfirm()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("RotateGame");
+        UIManager.Instance.ClearPopUpDic();
+    }
+
+    public void AcadeClose()
+    {
+        //TODO : 씬 이동
     }
 }

@@ -6,7 +6,9 @@ public class RotateGameScoreManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text bestScoreText;
 
-    private int score = 0;
+    public GradeCalculator gradeCalculator;
+
+    public int score = 0;
 
     private void Start()
     {
