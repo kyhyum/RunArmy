@@ -4,30 +4,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class InfiniteStair_UIMain : MonoBehaviour
+public class InfiniteStair_UIMain : UIMain
 {
-    [SerializeField] private Button settingButton;
     [SerializeField] private int temp;
-    private void Awake()
-    {
-        settingButton.onClick.AddListener(OpenPopup_Pause);
-    }
 
-    public void OpenPopup_Pause()
+    public override void Open()
     {
-        Popup_Pause popup = UIManager.Instance.ShowPopup<Popup_Pause>();
-        popup.PlayShowAnimation();
-        popup.SetPopup("일시정지","다시 시작", "게임 재개", Confirm, Close);
         temp = InfiniteStairGameManager.Instance.healthMinus;
-    }
-
-    public void Confirm()
-    {
-        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
-        UIManager.Instance.ClearPopUpDic();
+        InfiniteStairGameManager.Instance.healthMinus = 0;
     }
     
-    public void Close()
+    public override void Close()
     {
         InfiniteStairGameManager.Instance.healthMinus = temp;
     }
