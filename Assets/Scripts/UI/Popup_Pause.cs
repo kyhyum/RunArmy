@@ -6,5 +6,8 @@ using UnityEngine.UI;
 
 public class Popup_Pause : UIPopup
 {
-
+    public int temp;
+    public override void Refresh()
+    {
+    }
 }
