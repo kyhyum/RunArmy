@@ -5,11 +5,13 @@ using UnityEngine;
 public class StairSpawn : MonoBehaviour
 {
     public Queue<GameObject> stairQueue;
-    public GameObject stair;
+    private GameObject stair;
     private int count = 40;
 
     private void Awake()
     {
+
+        stair = Resources.Load("Gameprefab/Stair", typeof(GameObject)) as GameObject;
         stairQueue = new Queue<GameObject>();
 
         for (int i = 0; i < count; i++)
