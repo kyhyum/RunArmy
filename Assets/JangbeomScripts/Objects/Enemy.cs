@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
@@ -19,11 +19,7 @@ public class Enemy : MonoBehaviour
             {
                 otherRb.AddForce(Vector3.forward * 10, ForceMode.Impulse);
             }
-            if (PacmanGameManager.Instance.score >= 400)
-            {
-                PacmanGameManager.Instance.Success();
-            }
-            else
+            if (PacmanGameManager.Instance != null) // Check if the instance is not null
             {
                 PacmanGameManager.Instance.GameOver();
             }
