@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ROScoreManager : MonoBehaviour
 {
@@ -8,8 +7,6 @@ public class ROScoreManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
     private int score = 0;
-
-    private bool gameEnded = false;
 
     private void Awake()
     {
@@ -25,20 +22,9 @@ public class ROScoreManager : MonoBehaviour
 
     public void IncreaseScore(int points)
     {
-        if (!gameEnded)
-        {
-            score += points;
-            scoreText.text = score.ToString();
-        }
-    }
 
-    public void SetGameEnded()
-    {
-        gameEnded = true;
-    }
+        score += points;
+        scoreText.text = score.ToString();
 
-    public int GetScore()
-    {
-        return score;
     }
 }
