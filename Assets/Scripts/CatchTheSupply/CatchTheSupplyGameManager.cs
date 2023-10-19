@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class CatchTheSupplyGameManager : MonoBehaviour
 {
     public TextMeshProUGUI nowScoreText;
     public int nowScrore;
-    public TextMeshProUGUI maxScoreText;
-    public int maxScrore=15;
     public static CatchTheSupplyGameManager Instance;
 
     public TextMeshProUGUI timeText;
@@ -17,30 +16,29 @@ public class CatchTheSupplyGameManager : MonoBehaviour
 
     public bool gameEndCheck;
 
-    public static Cannon cannon;
+    private string rank;
 
-    float time = 0;
+    float time = 30;
     void Start()
     {
         gameEndCheck = false;
-        Instance = this;        
-        maxScoreText.text = maxScrore.ToString();
+        Instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!gameEndCheck) 
+        if (!gameEndCheck)
         {
-            time += Time.deltaTime;
+            time -= Time.deltaTime;
             timeText.text = time.ToString("0.00");
+            End();
         }
     }
 
-    public void ScorePlusUpdate() 
+    public void ScorePlusUpdate()
     {
         nowScrore++;
-        End();
         nowScoreText.text = nowScrore.ToString();
     }
     public void ScoreMinusUpdate()
@@ -49,12 +47,32 @@ public class CatchTheSupplyGameManager : MonoBehaviour
         nowScoreText.text = nowScrore.ToString();
     }
 
-    void End() 
+    void End()
     {
-        if (nowScrore >= maxScrore) 
+        if (time <= 0)
         {
-            gameEndCheck= true;
+            gameEndCheck = true;
             EndPanel.SetActive(true);
+            Rank();
+        }
+    }
+    public void Rank()
+    {
+        if (nowScrore >= 20)
+        {
+            rank = "ЦЏБо";
+        }
+        else if (nowScrore >= 15)
+        {
+            rank = "1Бо";
+        }
+        else if (nowScrore >= 10)
+        {
+            rank = "2Бо";
+        }
+        else
+        {
+            rank = "ЦѓБо";
         }
     }
 }
