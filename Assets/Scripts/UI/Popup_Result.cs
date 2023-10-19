@@ -13,6 +13,7 @@ public class Popup_Result : UIPopup
     [SerializeField] private TMP_Text scoreValueTxt;
     [SerializeField] private TMP_Text moneyValueTxt;
     [SerializeField] private TMP_Text degreeValueTxt;
+    [SerializeField] private TMP_Text scoreTxt;
 
     public override void Refresh()
     {
@@ -22,10 +23,14 @@ public class Popup_Result : UIPopup
     }
     
 
-    public void SetValue(int scoreValue, int moneyValue, string degreeValue)
+    public void SetValue(int scoreValue, int moneyValue, string degreeValue, string scoreStr = null)
     {
         this.scoreValue = scoreValue;
         this.moneyValue = moneyValue;
         this.degreeValue = degreeValue;
+
+        scoreTxt.text = scoreStr == null ? scoreTxt.text : scoreStr;
     }
+
+    
 }

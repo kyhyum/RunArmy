@@ -25,7 +25,7 @@ public class GoingUp : MonoBehaviour
     {
         if (_goingUpUI != null && !_isClear)
         {
-            _elapsedTime = Time.time;
+            _elapsedTime += Time.deltaTime;
             _goingUpUI.ShowElapsedTime(_elapsedTime);
         }
     }
@@ -47,7 +47,5 @@ public class GoingUp : MonoBehaviour
         GoingUpScore goingUpScore = new GoingUpScore();
         GradeCalculator gradeCalculator = FindAnyObjectByType<GradeCalculator>();
         goingUpScore.CalculateScore(gradeCalculator, _elapsedTime);
-        // TODO
-        // ShowPopup
     }
 }

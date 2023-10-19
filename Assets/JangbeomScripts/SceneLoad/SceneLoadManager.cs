@@ -17,6 +17,7 @@ public enum SceneType
 
 public enum MiniGame
 {
+    None,
     packmanGameScene,
     RotateGame,
     MemoryGame,
@@ -35,6 +36,10 @@ public class SceneLoadManager : MonoBehaviour
 
     public bool IsStoryMode { get; private set; } = false;
 
+    public MiniGame CurrentMiniGame = MiniGame.None;
+
+    public int ClearCount { get; set; } = 0;
+
     private void Awake()
     {
         if (_instance == null)
@@ -48,16 +53,12 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        InitMiniGames();
-    }
-
-    public void InitMiniGames()
+    private void InitMiniGames()
     {
         _miniGames.Clear();
 
         List<MiniGame> miniGames = new List<MiniGame>((MiniGame[])Enum.GetValues(typeof(MiniGame)));
+        miniGames.Remove(MiniGame.None);
         int count = miniGames.Count;
 
         for (int i = 0; i < count; i++)
@@ -70,9 +71,24 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadNextStoryScene()
     {
-        IsStoryMode = true;
-        MiniGame miniGame = _miniGames.Dequeue();
-        LoadScene(miniGame.ToString());
+        if (IsStoryMode)
+        {
+            if (_miniGames.Count == 0)
+            {
+                LoadScene(SceneType.juchan_endingScene);
+                return;
+            }
+
+            MiniGame miniGame = _miniGames.Dequeue();
+            CurrentMiniGame = miniGame;
+            LoadScene(miniGame);
+        }
+        else
+        {
+            InitMiniGames();
+            IsStoryMode = true;
+            LoadNextStoryScene();
+        }
     }
 
     public void LoadScene(SceneType scene)
@@ -80,9 +96,9 @@ public class SceneLoadManager : MonoBehaviour
         LoadingBar.LoadScene(scene.ToString());
     }
 
-    public void LoadScene(string scene)
+    public void LoadScene(MiniGame miniGame)
     {
-        LoadingBar.LoadScene(scene);
+        LoadingBar.LoadScene(miniGame.ToString());
     }
 
     public void ToMain()
