@@ -43,14 +43,29 @@ public class PlayerDataManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void SaveBestScore(MiniGame scene, int score)
+    public void SaveBestScore(MiniGame scene, int score, bool reverse = false)
     {
-        int currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
-        if (score > currentBestScore)
+        int currentBestScore = 0;
+
+        if (reverse)
         {
-            PlayerPrefs.SetInt(scene.ToString() + "_BestScore", score);
-            PlayerPrefs.Save();
+            currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_ShotestTime", 0);
+            if (score < currentBestScore)
+            {
+                PlayerPrefs.SetInt(scene.ToString() + "_ShotestTime", score);
+                PlayerPrefs.Save();
+            }
         }
+        else
+        {
+            currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
+            if (score > currentBestScore)
+            {
+                PlayerPrefs.SetInt(scene.ToString() + "_BestScore", score);
+                PlayerPrefs.Save();
+            }
+        }
+
     }
 
     public int LoadBestScore(MiniGame scene)

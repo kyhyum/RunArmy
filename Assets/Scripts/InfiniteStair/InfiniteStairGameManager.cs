@@ -149,7 +149,7 @@ public class InfiniteStairGameManager : MonoBehaviour
     }
     public void AcadeClose()
     {
-        SceneLoadManager.Instance.LoadScene(SceneType.ArcadeMenuScene);
+        SceneLoadManager.Instance.ToArcade();
     }
     public void StoryConfirmNotClear()
     {
