@@ -31,7 +31,6 @@ public class InfiniteStairGameManager : MonoBehaviour
     private int stairRangeNum = 1;
 
     //UI
-    public Transform canvasTr;
     public Slider healthSlider;
     public TextMeshProUGUI scoreTxt;
 
