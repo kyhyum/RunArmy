@@ -10,10 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20ed47490af95174ab3a462a5d920d43, type: 3}
-  m_Name: MiniGame
+  m_Name: GoingUp
   m_EditorClassIdentifier: 
-  <MiniGame>k__BackingField: 0
-  <Elite>k__BackingField: 40
-  <First>k__BackingField: 50
-  <Second>k__BackingField: 60
-  <Third>k__BackingField: 70
+  <ScoreCriteria>k__BackingField: 640000004b000000320000001900000000000000
