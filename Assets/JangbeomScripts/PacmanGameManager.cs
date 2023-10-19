@@ -10,15 +10,19 @@ public class PacmanGameManager : MonoBehaviour
     public int score = 0;
 
     public TMP_Text scoreText;
+    public TMP_Text timeText;
     public GameObject uiOver;
     public GameObject uiSuccess;
     public GameObject explainUI;
     public TMP_Text countdownText;
     private float startTime;
+    private float playTime;
     public AudioSource backgroundMusic;
     public AudioSource successSound;
     public AudioSource overSound;
-   
+
+    
+
 
     private void Awake()
     {
@@ -38,6 +42,14 @@ public class PacmanGameManager : MonoBehaviour
         {
             Time.timeScale = 0f;          
             StartCoroutine(StartGame());
+        }
+    }
+    private void Update()
+    {
+        if (Time.timeScale != 0f)
+        {
+            playTime += Time.deltaTime; 
+            timeText.text = " " + playTime.ToString("F2"); 
         }
     }
 
@@ -102,7 +114,13 @@ public class PacmanGameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         countdownText.gameObject.SetActive(false);
         Time.timeScale = 1f; // 게임 시작
+   
+    }
 
-       
+    private void SaveData()
+    {
+        PlayerPrefs.SetFloat("PlayTime", playTime);
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.Save();
     }
 }
