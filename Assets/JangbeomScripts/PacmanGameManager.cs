@@ -77,49 +77,74 @@ public class PacmanGameManager : MonoBehaviour
         successSound.Play();
         Time.timeScale = 0f;
     }
+
+    public void GameOver()
+    {
+        int gold = 0;
+        string grade;
+        grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
+        //아케이드 모드일 경우
+        if (!SceneLoadManager.Instance.IsStoryMode)
+        {
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+            popup.SetValue(score, gold, grade);
+            if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
+            {
+                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, score);
+            }
+        }
+        //스토리 모드일 경우
+        else
+        {
+            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+            if (score >= gradeCalculator.Data.ScoreCriteria[2])
+            {
+                // 깻을 경우
+                popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirmClear, StoryClose);
+                popup.SetText(true);
+            }
+            else
+            {
+                // 못 꺴을 경우
+                popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirmNotClear, StoryClose);
+                popup.SetText(false);
+            }
+        }
+
+        PlayerDataManager.Instance.playerData.coins += gold;
+        overSound.Play();
+        Time.timeScale = 0f;
+    }
     public void AcadeConfirm()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("packmanGameScene");
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
         UIManager.Instance.ClearPopUpDic();
     }
     public void AcadeClose()
     {
-        //TODO : 씬 이동
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.ToArcade();
     }
-    public void StoryConfirm()
+    public void StoryConfirmNotClear()
     {
-        //TODO : 씬 이동
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
+    }
+    public void StoryConfirmClear()
+    {
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.LoadNextStoryScene();
     }
 
     public void StoryClose()
     {
-        //TODO : 씬 이동
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
     }
 
-    public void GameOver()  
-    {
-        
-        //uiOver.SetActive(true);       
-        int gold = 0;
-        string grade;
-        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-        grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
-        popup.SetValue(score, gold, grade);
-
-        if (PlayerDataManager.Instance != null) // Check if the instance is not null
-        {
-            if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
-            {
-                PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
-            }
-        }
-
-
-        overSound.Play();
-        Time.timeScale = 0f; // 게임 일시정지
-    }
-   
     //public void Retry()
     //{
     //    uiOver.SetActive(false);

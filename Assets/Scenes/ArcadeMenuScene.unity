@@ -1258,6 +1258,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   memoryGameBestScoreText: {fileID: 656056007}
   rotateGameBestScoreText: {fileID: 1237246456}
+  packmanGameBestScoreText: {fileID: 467324204}
+  GoingUpGameBestScoreText: {fileID: 50657241}
+  ParkStageGameBestScoreText: {fileID: 951012059}
+  infiniteStairGameBestScoreText: {fileID: 952817845}
+  ParkStageScene2StairGameBestScoreText: {fileID: 1366894571}
 --- !u!4 &685376781
 Transform:
   m_ObjectHideFlags: 0
