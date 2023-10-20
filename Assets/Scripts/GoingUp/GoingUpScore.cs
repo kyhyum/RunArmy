@@ -31,8 +31,6 @@ public class GoingUpScore
             }
 
             result.SetText(isClear);
-
-            PlayerDataManager.Instance.SaveBestScore(SceneLoadManager.Instance.CurrentMiniGame, integerTime, true);
         }
         else
         {
@@ -47,5 +45,6 @@ public class GoingUpScore
         }
 
         PlayerDataManager.Instance.playerData.AddCoins(gold);
+        PlayerDataManager.Instance.SaveBestScore(SceneLoadManager.Instance.CurrentMiniGame, integerTime, true);
     }
 }

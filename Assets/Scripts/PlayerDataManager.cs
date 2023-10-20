@@ -50,10 +50,11 @@ public class PlayerDataManager : MonoBehaviour
 
         if (reverse)
         {
-            currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_ShotestTime", 0);
+            currentBestScore = int.MaxValue;
+            currentBestScore = PlayerPrefs.GetInt(scene.ToString() + "_BestScore", 0);
             if (score < currentBestScore)
             {
-                PlayerPrefs.SetInt(scene.ToString() + "_ShotestTime", score);
+                PlayerPrefs.SetInt(scene.ToString() + "_BestScore", score);
                 PlayerPrefs.Save();
             }
         }
