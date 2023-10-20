@@ -180,6 +180,6 @@ public class MemoryGameManager : MonoBehaviour
     }
     public void StoryConfirmNotClear()
     {
-        SceneManager.LoadScene("InfiniteStairScene");
+        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
     }
 }

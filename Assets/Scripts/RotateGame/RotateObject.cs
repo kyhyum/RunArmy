@@ -88,26 +88,31 @@ public class RotateObject : MonoBehaviour
 
     public void AcadeConfirm()
     {
+        Time.timeScale = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("RotateGame");
         UIManager.Instance.ClearPopUpDic();
     }
 
     public void AcadeClose()
     {
+        Time.timeScale = 1f;
         SceneLoadManager.Instance.ToMain();
     }
 
     public void StoryConfirmClear()
     {
+        Time.timeScale = 1f;
         SceneLoadManager.Instance.LoadNextStoryScene();
     }
 
     public void StoryClose()
     {
+        Time.timeScale = 1f;
         SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
     }
     public void StoryConfirmNotClear()
     {
-        SceneManager.LoadScene("InfiniteStairScene");
+        Time.timeScale = 1f;
+        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
     }
 }

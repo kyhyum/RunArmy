@@ -24,6 +24,7 @@ public class UIMain : MonoBehaviour
 
     public void Confirm()
     {
+        Time.timeScale = 1;
         SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
         UIManager.Instance.ClearPopUpDic();
     }

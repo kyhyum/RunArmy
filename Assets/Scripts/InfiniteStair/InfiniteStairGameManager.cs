@@ -117,10 +117,8 @@ public class InfiniteStairGameManager : MonoBehaviour
             popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, () => SceneLoadManager.Instance.ToArcade());
 
             popup.SetValue(count, gold, grade);
-            if (count >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
-            {
-                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, count);
-            }
+
+            PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, count);
         }
         //스토리 모드일 경우
         else{
@@ -139,7 +137,7 @@ public class InfiniteStairGameManager : MonoBehaviour
             }
         }
 
-        PlayerDataManager.Instance.playerData.coins += gold;
+        PlayerDataManager.Instance.playerData.AddCoins(gold);
     }
     public void AcadeConfirm()
     {
@@ -152,7 +150,7 @@ public class InfiniteStairGameManager : MonoBehaviour
     }
     public void StoryConfirmNotClear()
     {
-        SceneManager.LoadScene("InfiniteStairScene");
+        SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame);
     }
     public void StoryConfirmClear()
     {

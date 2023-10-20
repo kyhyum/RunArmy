@@ -7,21 +7,21 @@ public class HighScoreUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text memoryGameBestScoreText;
     [SerializeField] private TMP_Text rotateGameBestScoreText;
-    [SerializeField] private TMP_Text goingUpBestScoreText;
-    [SerializeField] private TMP_Text packManBestScoreText;
-    [SerializeField] private TMP_Text rainDropScoreText;
-    [SerializeField] private TMP_Text infinityStairsBestScoreText;
-    [SerializeField] private TMP_Text shootingBestScoreText;
+    [SerializeField] private TMP_Text packmanGameBestScoreText;
+    [SerializeField] private TMP_Text GoingUpGameBestScoreText;
+    [SerializeField] private TMP_Text ParkStageGameBestScoreText;
+    [SerializeField] private TMP_Text infiniteStairGameBestScoreText;
+    [SerializeField] private TMP_Text ParkStageScene2StairGameBestScoreText;
 
     private void Start()
     {
         UpdateBestScoreText(memoryGameBestScoreText, MiniGame.MemoryGame);
         UpdateBestScoreText(rotateGameBestScoreText, MiniGame.RotateGame);
-        UpdateBestScoreText(goingUpBestScoreText, MiniGame.GoingUp);
-        UpdateBestScoreText(packManBestScoreText, MiniGame.packmanGameScene);
-        UpdateBestScoreText(rainDropScoreText, MiniGame.ParkStageScene);
-        UpdateBestScoreText(infinityStairsBestScoreText, MiniGame.InfiniteStairScene);
-        UpdateBestScoreText(shootingBestScoreText, MiniGame.ParkStageScene2);
+        UpdateBestScoreText(infiniteStairGameBestScoreText, MiniGame.InfiniteStairScene);
+        UpdateBestScoreText(GoingUpGameBestScoreText, MiniGame.GoingUp);
+        UpdateBestScoreText(packmanGameBestScoreText, MiniGame.packmanGameScene);
+        UpdateBestScoreText(ParkStageGameBestScoreText, MiniGame.ParkStageScene);
+        UpdateBestScoreText(ParkStageScene2StairGameBestScoreText, MiniGame.ParkStageScene2);
     }
 
     void UpdateBestScoreText(TMP_Text textComponent, MiniGame game)
