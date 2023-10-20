@@ -96,8 +96,9 @@ public class CatchTheSupplyGameManager : MonoBehaviour
                 popup.SetText(false);
             }
         }
-        playerDataManager.SaveBestScore(MiniGame.ParkStageScene, nowScrore, false);
-        playerDataManager.playerData.coins += gold;
+        PlayerDataManager.Instance.SaveBestScore(MiniGame.ParkStageScene, nowScrore);
+
+        PlayerDataManager.Instance.playerData.coins += gold;
     }
     public void AcadeConfirm()
     {
