@@ -9,10 +9,13 @@ public class PacmanGameManager : MonoBehaviour
 
     public int score = 0;
 
-    public TMP_Text scoreText;
+    //public TMP_Text scoreText;
+    //public TMP_Text bestScoreText;
+
+    [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text bestScoreText;
     public TMP_Text timeText;
-    //public GameObject uiOver;
-    //public GameObject uiSuccess;
+    
     public GameObject explainUI;
     public TMP_Text countdownText;
     private float startTime;
@@ -40,10 +43,11 @@ public class PacmanGameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (countdownText != null)
+        if (countdownText != null || PlayerDataManager.Instance != null)
         {
             Time.timeScale = 0f;          
             StartCoroutine(StartGame());
+            
         }
     }
     private void Update()
@@ -54,29 +58,13 @@ public class PacmanGameManager : MonoBehaviour
             timeText.text = " " + playTime.ToString("F2"); 
         }
     }
-
-
-    private void UpdateScoreText()
+    public void IncreaseScore(int points)
     {
-        scoreText.text = " " + score;
-        if(score == 550)
-        {
-            Success();
-        }
+        score += points;
+        scoreText.text = score.ToString();
         
     }
-    public void IncreaseScore(int increment)
-    {
-        score += increment;
-        UpdateScoreText();
-    }
-    public void Success()
-    {
-        //uiSuccess.SetActive(true);
-  
-        successSound.Play();
-        Time.timeScale = 0f;
-    }
+
     public void AcadeConfirm()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("packmanGameScene");
@@ -84,34 +72,38 @@ public class PacmanGameManager : MonoBehaviour
     }
     public void AcadeClose()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.ToMain();
     }
-    public void StoryConfirm()
+    public void StoryConfirmClear()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.LoadNextStoryScene();
     }
 
+    public void StoryConfirmNotClear()
+    {
+        SceneManager.LoadScene("packmanGameScene");
+    }
     public void StoryClose()
     {
-        //TODO : 씬 이동
+        SceneLoadManager.Instance.LoadScene(SceneType.MainMenuScene);
     }
 
     public void GameOver()  
     {
-        
-        //uiOver.SetActive(true);       
+             
         int gold = 0;
         string grade;
         Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
         popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-        grade = gradeCalculator.CalculateGrade(score, out gold); // score 변수는 점수를 나타냈을 것으로 가정합니다.
+        grade = gradeCalculator.CalculateGrade(score, out gold);
         popup.SetValue(score, gold, grade);
 
-        if (PlayerDataManager.Instance != null) // Check if the instance is not null
+        if (PlayerDataManager.Instance != null)
         {
             if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
             {
                 PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
+                bestScoreText.text = "Best Score: " + score.ToString();
             }
         }
 
@@ -120,15 +112,7 @@ public class PacmanGameManager : MonoBehaviour
         Time.timeScale = 0f; // 게임 일시정지
     }
    
-    //public void Retry()
-    //{
-    //    uiOver.SetActive(false);
-    //    uiSuccess.SetActive(false);
-    //    UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
-    //    Time.timeScale = 1.0f;
-
-    //    score = 0;
-
+  
     //}
     private IEnumerator StartGame()
     {
@@ -150,11 +134,5 @@ public class PacmanGameManager : MonoBehaviour
         Time.timeScale = 1f; // 게임 시작
    
     }
-
-    //private void SaveData()
-    //{
-    //    PlayerPrefs.SetFloat("PlayTime", playTime);
-    //    PlayerPrefs.SetInt("Score", score);
-    //    PlayerPrefs.Save();
-    //}
+   
 }
