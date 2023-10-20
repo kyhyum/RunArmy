@@ -28,6 +28,9 @@ https://www.figma.com/file/cCArtcggV5VmdO2euyLhEe/B10?type=design&node-id=0-1&mo
 <img width="277" alt="image" src="https://github.com/JeongJuChan/QuestMakers/assets/141592625/892ff487-b0d3-4033-999a-694c805812c6">
 <img width="445" alt="image" src="https://github.com/JeongJuChan/QuestMakers/assets/141592625/08f5ccdb-81fb-4d72-bbd0-30410d8d97be">
 
+## 영상 링크
+https://youtu.be/biv73FHSKDY?si=ST-NWeF5dGxSYmvf
+
 ## 💡 기능
 ### 게임시작 화면
 - 게임 배경 이미지
@@ -54,9 +57,22 @@ https://www.figma.com/file/cCArtcggV5VmdO2euyLhEe/B10?type=design&node-id=0-1&mo
 ## 💚 역할 분담
 - 팀과제
     - 정주찬
-        - 오디오 매니저
+        - 사운드 매니저
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/Managers/SoundManager.cs#L1
+        - 씬 매니저
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/JangbeomScripts/SceneLoad/SceneLoadManager.cs#L1
         - 엔딩 씬
-        - 돌 피하기        
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/Ending/EndingScene.cs#L1
+        ![image](https://github.com/JeongJuChan/QuestMakers/assets/95285906/11881b4d-56f5-4c3d-afa3-10b3cd59de08)
+        - 돌 피하기
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/GoingUp.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/GoingUpScore.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/Obstacles/Obstacle.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/Obstacles/ObstacleCollision.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/Obstacles/ObstacleShooter.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/Obstacles/ObstacleSpawner.cs#L1
+        https://github.com/JeongJuChan/QuestMakers/blob/e6c2c48ee8ed3098f127ef688c7312cd7c9f245a/Assets/Scripts/GoingUp/Obstacles/SpawnTimeCalculator.cs#L1
+        ![image](https://github.com/JeongJuChan/QuestMakers/assets/95285906/09ed65cc-ade3-4b9e-98ba-2dd3eb06d9e1)
     - 최장범
         - ~~슈팅게임 몹잡기~~
         - 팩맨 3D버전
