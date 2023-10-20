@@ -53,6 +53,11 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(BGM.MainBGM);
+    }
+
     private void InitMiniGames()
     {
         _miniGames.Clear();
@@ -108,6 +113,7 @@ public class SceneLoadManager : MonoBehaviour
 
     public void ToMain()
     {
+        SoundManager.Instance.PlayBGM(BGM.MainBGM);
         LoadScene(SceneType.MainMenuScene);
     }
     public void ToArcade()

@@ -47,6 +47,7 @@ public class InfiniteStairGameManager : MonoBehaviour
         upStairPos.Add(new Vector3(-1f, 0.6f, 0f));
     }
 
+
     private void Update()
     {
         elapsedTime += Time.deltaTime;
@@ -64,6 +65,8 @@ public class InfiniteStairGameManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.Instance.PlayBGM(BGM.MiniGameBGM4);
+
         for (int i = 0; i< 30; i++)
         {
             SpawnStair();

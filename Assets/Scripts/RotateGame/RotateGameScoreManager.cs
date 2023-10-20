@@ -14,6 +14,7 @@ public class RotateGameScoreManager : MonoBehaviour
     {
         int bestScore = PlayerDataManager.Instance.LoadBestScore(MiniGame.RotateGame);
         bestScoreText.text = "Best Score: " + bestScore.ToString();
+        SoundManager.Instance.PlayBGM(BGM.MiniGameBGM1);
     }
 
     public void IncreaseScore(int points)

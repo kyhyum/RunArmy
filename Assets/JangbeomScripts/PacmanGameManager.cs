@@ -40,6 +40,8 @@ public class PacmanGameManager : MonoBehaviour
     }
     private void Start()
     {
+        SoundManager.Instance.PlayBGM(BGM.MiniGameBGM3);
+
         if (countdownText != null)
         {
             Time.timeScale = 0f;          
