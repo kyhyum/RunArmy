@@ -95,7 +95,7 @@ public class ShootingGameManager : MonoBehaviour
                 popup.SetText(false);
             }
         }
-        playerDataManager.SaveBestScore(MiniGame.ParkStageScene2, score, false);
+        PlayerDataManager.Instance.SaveBestScore(MiniGame.ParkStageScene2, score);
         playerDataManager.playerData.coins += gold;
     }
     public void AcadeConfirm()
