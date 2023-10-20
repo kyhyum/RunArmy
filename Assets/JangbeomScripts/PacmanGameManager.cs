@@ -43,11 +43,13 @@ public class PacmanGameManager : MonoBehaviour
     }
     private void Start()
     {
-        if (countdownText != null || PlayerDataManager.Instance != null)
+        if (countdownText != null)
         {
             Time.timeScale = 0f;          
             StartCoroutine(StartGame());
-            
+            int bestScore = PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene);
+            bestScoreText.text = "Best Score: " + bestScore.ToString();
+            score = 0;
         }
     }
     private void Update()
@@ -62,7 +64,7 @@ public class PacmanGameManager : MonoBehaviour
     {
         score += points;
         scoreText.text = score.ToString();
-        
+        PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
     }
 
     public void AcadeConfirm()
@@ -90,22 +92,49 @@ public class PacmanGameManager : MonoBehaviour
 
     public void GameOver()  
     {
-             
+
+
         int gold = 0;
         string grade;
-        Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
-        popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
-        grade = gradeCalculator.CalculateGrade(score, out gold);
-        popup.SetValue(score, gold, grade);
-
-        if (PlayerDataManager.Instance != null)
+        if (!SceneLoadManager.Instance.IsStoryMode)
         {
-            if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
+            Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+            popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+
+
+            grade = gradeCalculator.CalculateGrade(score, out gold);
+
+            popup.SetValue(score, gold, grade);
+            PlayerDataManager.Instance.playerData.AddCoins(gold);
+        }
+        else
+        {
+            Popup_StoryResult popup = UIManager.Instance.ShowPopup<Popup_StoryResult>();
+            if (score >= gradeCalculator.Data.ScoreCriteria[2])
             {
-                PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
-                bestScoreText.text = "Best Score: " + score.ToString();
+                popup.SetPopup("게임 결과", "다음 스테이지", "나가기", StoryConfirmClear, StoryClose);
+                popup.SetText(true);
+            }
+            else
+            {
+                popup.SetPopup("게임 결과", "다시 하기", "나가기", StoryConfirmNotClear, StoryClose);
+                popup.SetText(false);
             }
         }
+
+        //Popup_Result popup = UIManager.Instance.ShowPopup<Popup_Result>();
+        //popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
+        //grade = gradeCalculator.CalculateGrade(score, out gold);
+        //popup.SetValue(score, gold, grade);
+
+        //if (PlayerDataManager.Instance != null)
+        //{
+        //    if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.packmanGameScene))
+        //    {
+        //        PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
+        //        bestScoreText.text = "Best Score: " + score.ToString();
+        //    }
+        //}
 
 
         overSound.Play();
