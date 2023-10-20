@@ -90,10 +90,7 @@ public class PacmanGameManager : MonoBehaviour
             popup.SetPopup("게임 결과", "다시하기", "나가기", AcadeConfirm, AcadeClose);
 
             popup.SetValue(score, gold, grade);
-            if (score >= PlayerDataManager.Instance.LoadBestScore(MiniGame.InfiniteStairScene))
-            {
-                PlayerDataManager.Instance.SaveBestScore(MiniGame.InfiniteStairScene, score);
-            }
+            PlayerDataManager.Instance.SaveBestScore(MiniGame.packmanGameScene, score);
         }
         //스토리 모드일 경우
         else
