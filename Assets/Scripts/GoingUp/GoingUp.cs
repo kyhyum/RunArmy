@@ -41,6 +41,7 @@ public class GoingUp : MonoBehaviour
 
     public void Clear(CharacterController controller)
     {
+        Time.timeScale = 0f;
         _isClear = true;
         controller.enabled = false;
         SoundManager.Instance.StopBGM();

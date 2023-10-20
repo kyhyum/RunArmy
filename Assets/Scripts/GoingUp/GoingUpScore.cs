@@ -40,18 +40,12 @@ public class GoingUpScore
 
             result.PlayShowAnimation();
             result.SetPopup("게임 결과", "다시하기", "나가기",
-                    AcadeConfirm,
+                    () => SceneLoadManager.Instance.LoadScene(SceneLoadManager.Instance.CurrentMiniGame),
                     () => SceneLoadManager.Instance.ToArcade()
                     );
             result.SetValue(integerTime, gold, grade, "경과 시간 :");
         }
 
         PlayerDataManager.Instance.playerData.AddCoins(gold);
-    }
-
-    public void AcadeConfirm()
-    {
-        SceneManager.LoadScene("GoingUp");
-        UIManager.Instance.ClearPopUpDic();
     }
 }

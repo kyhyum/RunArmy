@@ -93,11 +93,15 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadScene(SceneType scene)
     {
+        Time.timeScale = 1.0f;
+
         LoadingBar.LoadScene(scene.ToString());
     }
 
     public void LoadScene(MiniGame miniGame)
     {
+        Time.timeScale = 1.0f;
+
         CurrentMiniGame = miniGame;
         LoadingBar.LoadScene(miniGame.ToString());
     }
