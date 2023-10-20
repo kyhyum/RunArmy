@@ -1,8 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class GoingUpScore
+﻿public class GoingUpScore
 {
     public void CalculateScore(GradeCalculator gradeCalculator, float elapsedTime)
     {
