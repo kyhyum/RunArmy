@@ -9,6 +9,7 @@ public enum BGM
     GoingUp,
     Catch,
     Shooting,
+    Rotate,
 }
 
 public class SoundManager : MonoBehaviour
