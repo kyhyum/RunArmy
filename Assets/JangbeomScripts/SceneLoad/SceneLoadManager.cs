@@ -53,6 +53,11 @@ public class SceneLoadManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(BGM.MainBGM);
+    }
+
     private void InitMiniGames()
     {
         _miniGames.Clear();
@@ -93,17 +98,22 @@ public class SceneLoadManager : MonoBehaviour
 
     public void LoadScene(SceneType scene)
     {
+        Time.timeScale = 1.0f;
+
         LoadingBar.LoadScene(scene.ToString());
     }
 
     public void LoadScene(MiniGame miniGame)
     {
+        Time.timeScale = 1.0f;
+
         CurrentMiniGame = miniGame;
         LoadingBar.LoadScene(miniGame.ToString());
     }
 
     public void ToMain()
     {
+        SoundManager.Instance.PlayBGM(BGM.MainBGM);
         LoadScene(SceneType.MainMenuScene);
     }
     public void ToArcade()

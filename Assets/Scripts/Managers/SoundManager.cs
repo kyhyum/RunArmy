@@ -9,6 +9,11 @@ public enum BGM
     GoingUp,
     Catch,
     Shooting,
+    MainBGM,
+    MiniGameBGM1,
+    MiniGameBGM2,
+    MiniGameBGM3,
+    MiniGameBGM4,
 }
 
 public class SoundManager : MonoBehaviour

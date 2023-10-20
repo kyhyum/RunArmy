@@ -29,6 +29,11 @@ public class MemoryGameManager : MonoBehaviour
         UpdateUI();
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(BGM.MiniGameBGM2);
+    }
+
     public void AddToPlayerSequenceList(int buttonID)
     {
         playerSequenceList.Add(buttonID);
